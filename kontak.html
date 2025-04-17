@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - PCNU Kotabaru</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Logo NU">
+                <h1>PCNU Kotabaru</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="berita.html">Berita</a></li>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="kontak-section">
+            <h1>Hubungi Kami</h1>
+            
+            <div class="kontak-container">
+                <div class="kontak-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-detail">
+                            <h3>Alamat Kantor</h3>
+                            <p>Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="info-detail">
+                            <h3>Telepon</h3>
+                            <p>(+62) 812-5656-8899</p>
+                            <p>(+62) 821-5175-8303</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-detail">
+                            <h3>Email</h3>
+                            <p>kotabaru@nu.or.id</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="info-detail">
+                            <h3>Jam Operasional</h3>
+                            <p>Senin - Jumat: 08:00 - 16:00</p>
+                            <p>Sabtu: 08:00 - 12:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kontak-form">
+                    <h2>Kirim Pesan</h2>
+                    <form id="kontakForm" onsubmit="return handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" name="nama" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subjek">Subjek</label>
+                            <input type="text" id="subjek" name="subjek" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pesan">Pesan</label>
+                            <textarea id="pesan" name="pesan" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="maps-container">
+                <h2>Lokasi Kami</h2>
+                <div class="google-maps">
+                    <!-- Ganti src dengan URL Google Maps PCNU Kotabaru -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.96277252784463!2d116.22039602112282!3d-3.2492444646509884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2def31feaaaaaaab%3A0x8cc79c5fa00f927c!2sSTIT%20Darul%20Ulum%20Kotabaru!5e0!3m2!1sid!2sid!4v1744874391829!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PCNU Kotabaru</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru</p>
+                <p><i class="fas fa-envelope"></i> Email: kotabaru@nu.or.id</p>
+                <p><i class="fas fa-phone"></i> Telp: (+62) 812-5656-8899, (+62) 821-5175-8303</p>
+            </div>
+            <div class="footer-section">
+                <h3>Tautan Cepat</h3>
+                <ul>
+                    <li><a href="profil.html">Tentang Kami</a></li>
+                    <li><a href="program.html">Program</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Media Sosial</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PCNU Kotabaru. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/kontak.js"></script>
+</body>
+</html>
