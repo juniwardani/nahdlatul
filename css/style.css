@@ -789,110 +789,129 @@ footer {
 #program-unggulan,
 #galeri-preview,
 #highlight {
-    .berita-section {
-        padding: 5rem 0;
+    padding: 5rem 2rem;
+    background: #f8f9fa;
+}
+
+#berita-terkini .section-header,
+#program-unggulan .section-header {
         max-width: 1200px;
-        margin: 0 auto;
-        background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('../images/pattern-bg.png');
+    margin: 0 auto 3rem;
+    text-align: center;
     }
     
-    .berita-section h1 {
-        font-size: 2.8rem;
+#berita-terkini h2,
+#program-unggulan h2 {
+    font-size: 2.5rem;
         color: var(--primary-color);
-        text-align: center;
-        margin-bottom: 3.5rem;
+    margin-bottom: 1.5rem;
         position: relative;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+    display: inline-block;
     }
     
-    .berita-section h1::after {
+#berita-terkini h2::after,
+#program-unggulan h2::after {
         content: '';
         position: absolute;
-        bottom: -15px;
+    bottom: -10px;
         left: 50%;
         transform: translateX(-50%);
-        width: 120px;
-        height: 4px;
+    width: 100px;
+    height: 3px;
         background: var(--primary-color);
-        border-radius: 2px;
     }
     
-    .berita-grid {
+.berita-grid,
+.program-slider {
+    max-width: 1200px;
+    margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
         padding: 0 2rem;
-        margin-bottom: 4rem;
-    }
-    
-    .berita-card {
-        background: #ffffff;
+}
+
+.berita-card,
+.program-card {
+    background: #fff;
+    padding: 2.5rem 2rem;
         border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        transition: all 0.4s ease;
-        border: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    .berita-card:hover {
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.berita-card:hover,
+.program-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 15px 40px rgba(0,132,61,0.15);
     }
     
-    .pagination {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 3rem;
-    }
-    
-    .pagination a {
-        padding: 0.8rem 1.5rem;
-        border: 2px solid var(--primary-color);
-        border-radius: 8px;
+.program-icon i,
+.berita-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.berita-card h3,
+.program-card h3 {
         color: var(--primary-color);
-        text-decoration: none;
-        transition: all 0.3s ease;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
         font-weight: 600;
     }
     
-    .pagination a.active,
-    .pagination a:hover {
-        background: var(--primary-color);
-        color: white;
-    }
-    
-    .pagination a.next {
-        padding: 0.8rem 2rem;
+.berita-card p,
+.program-card p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
     }
     
     @media (max-width: 992px) {
-        .berita-section {
-            padding: 4rem 0;
-        }
-    
-        .berita-section h1 {
-            font-size: 2.4rem;
+    .berita-grid,
+    .program-slider {
+        grid-template-columns: repeat(2, 1fr);
         }
     }
     
     @media (max-width: 768px) {
-        .berita-grid {
+    #berita-terkini,
+    #program-unggulan {
+        padding: 4rem 0;
+    }
+
+    .berita-grid,
+    .program-slider {
             grid-template-columns: 1fr;
             gap: 2rem;
             padding: 0 1.5rem;
         }
     
-        .berita-section h1 {
+    #berita-terkini h2,
+    #program-unggulan h2 {
             font-size: 2rem;
-            margin-bottom: 2.5rem;
-        }
-    
-        .pagination {
-            flex-wrap: wrap;
-        }
+    }
+
+    .berita-card,
+    .program-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .program-icon i,
+    .berita-card i {
+        font-size: 2.5rem;
+    }
+
+    .berita-card h3,
+    .program-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .berita-card p,
+    .program-card p {
+        font-size: 1rem;
     }
 }
 
@@ -1236,5 +1255,106 @@ main section {
 
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
+.page-content section h1 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-top: 2rem;
+}
+
+.page-content section h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Responsive styling untuk heading */
+@media (max-width: 768px) {
+    .page-content section h1 {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0;
+}
+
+.pagination a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 50%;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.pagination a.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.pagination a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.pagination a.next {
+    width: auto;
+    padding: 0 20px;
+    border-radius: 20px;
+}
+
+/* Responsive Pagination */
+@media (max-width: 768px) {
+    .pagination {
+        gap: 5px;
+    }
+
+    .pagination a {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .pagination a.next {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination a {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .pagination a.next {
+        padding: 0 12px;
     }
 }
