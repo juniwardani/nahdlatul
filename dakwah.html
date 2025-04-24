@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dakwah - PCNU Kotabaru</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
+    .dakwah-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        margin-bottom: 2rem;
+        border: 1px solid #eee;
+    }
+
+    .dakwah-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-color: var(--primary-color);
+    }
+
+    .dakwah-content {
+        padding: 2rem;
+    }
+
+    .dakwah-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #666;
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+    }
+
+    .dakwah-meta i {
+        color: var(--primary-color);
+        margin-right: 0.3rem;
+    }
+
+    .dakwah-title {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .dakwah-description {
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        font-size: 1rem;
+    }
+
+    .dakwah-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+
+    .dakwah-tag {
+        background: #e8f5e9;
+        color: var(--primary-color);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+
+    .watch-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--primary-color);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .watch-button:hover {
+        background: #006c31;
+        transform: translateY(-2px);
+    }
+
+    .dakwah-filter {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        padding: 0.8rem 1.5rem;
+        border: 2px solid var(--primary-color);
+        background: transparent;
+        color: var(--primary-color);
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .dakwah-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+        .dakwah-meta {
+            gap: 1rem;
+        }
+        
+        .dakwah-content {
+            padding: 1.5rem;
+        }
+
+        .dakwah-title {
+            font-size: 1.3rem;
+        }
+
+        .watch-button {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Logo NU">
+                <h1>PCNU Kotabaru</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="berita.html">Berita</a></li>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="dakwah.html">Dakwah</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="dakwah-section">
+            <h1>Ceramah Islami</h1>
+
+            <div class="dakwah-filter">
+                <button class="filter-btn active">Semua</button>
+                <button class="filter-btn">Fiqih</button>
+                <button class="filter-btn">Aqidah</button>
+                <button class="filter-btn">Akhlak</button>
+                <button class="filter-btn">Tasawuf</button>
+                <button class="filter-btn">Ibadah</button>
+                <button class="filter-btn">Aswaja</button>
+            </div>
+
+            <div class="dakwah-container">
+                <div class="dakwah-card">
+                    <div class="dakwah-content">
+                        <div class="dakwah-meta">
+                            <span><i class="fas fa-user"></i> KH. Ahmad Bahauddin</span>
+                            <span><i class="fas fa-calendar"></i> 15 Januari 2024</span>
+                        </div>
+                        <h2 class="dakwah-title">Memahami Fiqih Ibadah Sehari-hari</h2>
+                        <p class="dakwah-description">Pembahasan mendalam tentang tata cara ibadah sehari-hari menurut madzhab Syafi'i yang sering kita praktikkan. Artikel ini membahas tentang thaharah, shalat, puasa dan zakat dalam perspektif madzhab Syafi'i.</p>
+                        <div class="dakwah-tags">
+                            <span class="dakwah-tag">Fiqih</span>
+                            <span class="dakwah-tag">Ibadah</span>
+                            <span class="dakwah-tag">Aswaja</span>
+                        </div>
+                        <a href="#" class="watch-button">
+                            <i class="fas fa-book-open"></i>
+                            Baca Selengkapnya
+                        </a>
+                    </div>
+                </div>
+
+                <div class="dakwah-card">
+                    <div class="dakwah-content">
+                        <div class="dakwah-meta">
+                            <span><i class="fas fa-user"></i> KH. Muhammad Ridwan</span>
+                            <span><i class="fas fa-calendar"></i> 12 Januari 2024</span>
+                        </div>
+                        <h2 class="dakwah-title">Tasawuf dalam Kehidupan Modern</h2>
+                        <p class="dakwah-description">Artikel mendalam tentang penerapan nilai-nilai tasawuf di era modern. Bagaimana kita bisa menjalani kehidupan spiritual yang mendalam sambil tetap aktif dalam kehidupan modern dan teknologi.</p>
+                        <div class="dakwah-tags">
+                            <span class="dakwah-tag">Tasawuf</span>
+                            <span class="dakwah-tag">Akhlak</span>
+                            <span class="dakwah-tag">Aswaja</span>
+                        </div>
+                        <a href="#" class="watch-button">
+                            <i class="fas fa-book-open"></i>
+                            Baca Selengkapnya
+                        </a>
+                    </div>
+                </div>
+
+                <div class="dakwah-card">
+                    <div class="dakwah-content">
+                        <div class="dakwah-meta">
+                            <span><i class="fas fa-user"></i> KH. Abdul Karim</span>
+                            <span><i class="fas fa-calendar"></i> 10 Januari 2024</span>
+                        </div>
+                        <h2 class="dakwah-title">Aqidah Ahlussunnah Wal Jamaah</h2>
+                        <p class="dakwah-description">Artikel komprehensif tentang dasar-dasar aqidah Ahlussunnah wal Jamaah. Membahas tentang sifat-sifat Allah, kenabian, hari akhir, dan perbedaannya dengan aliran-aliran lain dalam Islam.</p>
+                        <div class="dakwah-tags">
+                            <span class="dakwah-tag">Aqidah</span>
+                            <span class="dakwah-tag">Aswaja</span>
+                        </div>
+                        <a href="#" class="watch-button">
+                            <i class="fas fa-book-open"></i>
+                            Baca Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#" class="next">Selanjutnya</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PCNU Kotabaru</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru</p>
+                <p><i class="fas fa-envelope"></i> Email: kotabaru@nu.or.id</p>
+                <p><i class="fas fa-phone"></i> Telp: (+62) 812-5656-8899, (+62) 821-5175-8303</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Media Sosial</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PCNU Kotabaru. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Mendapatkan semua tombol filter dan artikel
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const dakwahCards = document.querySelectorAll('.dakwah-card');
+
+        // Menambahkan event listener untuk setiap tombol filter
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Menghapus kelas active dari semua tombol
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Menambahkan kelas active ke tombol yang diklik
+                button.classList.add('active');
+
+                // Mendapatkan kategori yang dipilih
+                const selectedCategory = button.textContent.toLowerCase();
+
+                // Filter artikel berdasarkan kategori
+                dakwahCards.forEach(card => {
+                    const tags = Array.from(card.querySelectorAll('.dakwah-tag'))
+                                    .map(tag => tag.textContent.toLowerCase());
+                    
+                    if (selectedCategory === 'semua' || tags.includes(selectedCategory)) {
+                        card.style.display = 'block';
+                        // Animasi fade in
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Menambahkan transisi untuk animasi
+        dakwahCards.forEach(card => {
+            card.style.transition = 'opacity 0.3s ease';
+        });
+    </script>
+</body>
+</html> 
