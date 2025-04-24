@@ -7,6 +7,103 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+<style>
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 30px 0;
+      padding: 0 20px;
+    }
+
+    .page-button {
+      background: #1b5e20;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .page-button:hover {
+      background: #2e7d32;
+      transform: translateY(-2px);
+    }
+
+    .page-button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .page-info {
+      text-align: center;
+      color: #4a4a4a;
+      font-size: 14px;
+      margin: 10px 0;
+      font-weight: 500;
+    }
+
+  
+
+    @media (max-width: 768px) {
+      .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        margin: 100px 0 20px 0;
+        font-size: 20px;
+      }
+
+      .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .page-button {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+    }
+</style>
+
+
 <body>
     <header>
         <nav class="navbar">
@@ -20,6 +117,7 @@
                 <li><a href="berita.html">Berita</a></li>
                 <li><a href="program.html">Program</a></li>
                 <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="dakwah.html">Dakwah</a></li>
                 <li><a href="kontak.html">Kontak</a></li>
             </ul>
             <div class="hamburger">
@@ -33,29 +131,16 @@
     <main class="page-content">
         <section class="galeri-section">
             <h1>Galeri Kegiatan</h1>
-            
-            <div class="galeri-filter">
-                <button class="filter-btn active" data-filter="semua">Semua</button>
-                <button class="filter-btn" data-filter="pengajian">Pengajian</button>
-                <button class="filter-btn" data-filter="sosial">Kegiatan Sosial</button>
-                <button class="filter-btn" data-filter="pendidikan">Pendidikan</button>
-            </div>
 
-            <div class="galeri-container">
-                <div class="galeri-item" data-category="pengajian">
-                    <img src="images/galeri/pengajian1.jpg" alt="Pengajian Akbar">
-                    <div class="galeri-overlay">
-                        <h3>Pengajian Akbar</h3>
-                        <p>Pengajian Akbar PCNU Kotabaru 2024</p>
-                    </div>
-                </div>
-                <div class="galeri-item" data-category="sosial">
-                    <img src="images/galeri/sosial1.jpg" alt="Bakti Sosial">
-                    <div class="galeri-overlay">
-                        <h3>Bakti Sosial</h3>
-                        <p>Pembagian Sembako untuk Warga</p>
-                    </div>
-                </div>
+            <div class="gallery-container" id="galleryContainer">
+                <!-- Gambar akan dimuat melalui JavaScript -->
+              </div>
+            
+              <div class="pagination">
+                <button class="page-button" id="prevPage" onclick="previousPage()">Sebelumnya</button>
+                <div class="page-info" id="pageInfo">Halaman 1 dari 1</div>
+                <button class="page-button" id="nextPage" onclick="nextPage()">Selanjutnya</button>
+              </div>
                 <!-- Tambahkan item galeri lainnya sesuai kebutuhan -->
             </div>
         </section>
@@ -69,15 +154,7 @@
                 <p><i class="fas fa-envelope"></i> Email: kotabaru@nu.or.id</p>
                 <p><i class="fas fa-phone"></i> Telp: (+62) 812-5656-8899, (+62) 821-5175-8303</p>
             </div>
-            <div class="footer-section">
-                <h3>Tautan Cepat</h3>
-                <ul>
-                    <li><a href="profil.html">Tentang Kami</a></li>
-                    <li><a href="program.html">Program</a></li>
-                    <li><a href="berita.html">Berita</a></li>
-                    <li><a href="kontak.html">Kontak</a></li>
-                </ul>
-            </div>
+
             <div class="footer-section">
                 <h3>Media Sosial</h3>
                 <div class="social-links">
@@ -93,6 +170,62 @@
         </div>
     </footer>
 
-    <script src="js/galeri.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let currentPage = 1;
+        const imagesPerPage = 12;
+        let totalImages = 0;
+        let totalPages = 0;
+        let imageFiles = [];
+    
+        // Fungsi untuk memuat gambar
+        function loadImages() {
+          const galleryContainer = document.getElementById('galleryContainer');
+          galleryContainer.innerHTML = '';
+    
+          // Simulasi daftar file gambar
+          imageFiles = Array.from({length: 80}, (_, i) => `photo_${i + 1}.jpeg`);
+          totalImages = imageFiles.length;
+          totalPages = Math.ceil(totalImages / imagesPerPage);
+    
+          const startIndex = (currentPage - 1) * imagesPerPage;
+          const endIndex = Math.min(startIndex + imagesPerPage, totalImages);
+    
+          for (let i = startIndex; i < endIndex; i++) {
+            const imageFile = imageFiles[i];
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            galleryItem.innerHTML = `
+              <img src="photo/${imageFile}" alt="Foto ${i + 1}" loading="lazy">
+            `;
+            galleryContainer.appendChild(galleryItem);
+          }
+    
+          updatePagination();
+        }
+    
+        function updatePagination() {
+          document.getElementById('pageInfo').textContent = `Halaman ${currentPage} dari ${totalPages}`;
+          document.getElementById('prevPage').disabled = currentPage === 1;
+          document.getElementById('nextPage').disabled = currentPage === totalPages;
+        }
+    
+        function previousPage() {
+          if (currentPage > 1) {
+            currentPage--;
+            loadImages();
+          }
+        }
+    
+        function nextPage() {
+          if (currentPage < totalPages) {
+            currentPage++;
+            loadImages();
+          }
+        }
+    
+        // Inisialisasi
+        loadImages();
+      </script>
 </body>
 </html>
