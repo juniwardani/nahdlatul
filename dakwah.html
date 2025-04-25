@@ -93,13 +93,14 @@
     .dakwah-filter {
         display: flex;
         justify-content: center;
-        gap: 1rem;
+        gap: 0.5rem;
         margin-bottom: 3rem;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        padding: 0 1rem;
     }
 
     .filter-btn {
-        padding: 0.8rem 1.5rem;
+        padding: 0.6rem 1rem;
         border: 2px solid var(--primary-color);
         background: transparent;
         color: var(--primary-color);
@@ -107,6 +108,8 @@
         cursor: pointer;
         font-weight: 500;
         transition: all 0.3s ease;
+        font-size: 0.9rem;
+        white-space: nowrap;
     }
 
     .filter-btn.active,
@@ -136,6 +139,149 @@
         .watch-button {
             width: 100%;
             justify-content: center;
+        }
+
+        .dakwah-filter {
+            gap: 0.3rem;
+            padding: 0 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 0.8rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .dakwah-filter {
+            gap: 0.2rem;
+            padding: 0 0.3rem;
+        }
+
+        .filter-btn {
+            padding: 0.4rem 0.6rem;
+            font-size: 0.75rem;
+        }
+    }
+
+    /* Tambahkan style untuk modal */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    .modal-content {
+        position: relative;
+        background: #fff;
+        width: 90%;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .modal-title {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin: 0;
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #666;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+        color: var(--primary-color);
+    }
+
+    .modal-meta {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .modal-meta i {
+        color: var(--primary-color);
+        margin-right: 0.3rem;
+    }
+
+    .modal-body {
+        line-height: 1.8;
+        color: var(--text-color);
+        font-size: 1.1rem;
+        text-align: justify;
+        white-space: pre-line;
+    }
+
+    .modal-body p {
+        margin-bottom: 1.5rem;
+    }
+
+    .modal-body p:last-child {
+        margin-bottom: 0;
+    }
+
+    .modal-tag {
+        display: inline-block;
+        background: #e8f5e9;
+        color: var(--primary-color);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .modal-content {
+            width: 95%;
+            margin: 20px auto;
+            padding: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+        }
+
+        .modal-meta {
+            flex-direction: column;
+            gap: 0.5rem;
         }
     }
 </style>
@@ -175,59 +321,7 @@
             </div>
 
             <div class="dakwah-container">
-                <div class="dakwah-card">
-                    <div class="dakwah-content">
-                        <div class="dakwah-meta">
-                            <span><i class="fas fa-user"></i> KH. Ahmad Bahauddin</span>
-                            <span><i class="fas fa-calendar"></i> 15 Januari 2024</span>
-                        </div>
-                        <h2 class="dakwah-title">Memahami Fiqih Ibadah Sehari-hari</h2>
-                        <p class="dakwah-description">Pembahasan mendalam tentang tata cara ibadah sehari-hari menurut madzhab Syafi'i yang sering kita praktikkan. Artikel ini membahas tentang thaharah, shalat, puasa dan zakat dalam perspektif madzhab Syafi'i.</p>
-                        <div class="dakwah-tags">
-                            <span class="dakwah-tag">Fiqih</span>
-                        </div>
-                        <a href="#" class="watch-button">
-                            <i class="fas fa-book-open"></i>
-                            Baca Selengkapnya
-                        </a>
-                    </div>
-                </div>
-
-                <div class="dakwah-card">
-                    <div class="dakwah-content">
-                        <div class="dakwah-meta">
-                            <span><i class="fas fa-user"></i> KH. Muhammad Ridwan</span>
-                            <span><i class="fas fa-calendar"></i> 12 Januari 2024</span>
-                        </div>
-                        <h2 class="dakwah-title">Tasawuf dalam Kehidupan Modern</h2>
-                        <p class="dakwah-description">Artikel mendalam tentang penerapan nilai-nilai tasawuf di era modern. Bagaimana kita bisa menjalani kehidupan spiritual yang mendalam sambil tetap aktif dalam kehidupan modern dan teknologi.</p>
-                        <div class="dakwah-tags">
-                            <span class="dakwah-tag">Tasawuf</span>
-                        </div>
-                        <a href="#" class="watch-button">
-                            <i class="fas fa-book-open"></i>
-                            Baca Selengkapnya
-                        </a>
-                    </div>
-                </div>
-
-                <div class="dakwah-card">
-                    <div class="dakwah-content">
-                        <div class="dakwah-meta">
-                            <span><i class="fas fa-user"></i> KH. Abdul Karim</span>
-                            <span><i class="fas fa-calendar"></i> 10 Januari 2024</span>
-                        </div>
-                        <h2 class="dakwah-title">Aqidah Ahlussunnah Wal Jamaah</h2>
-                        <p class="dakwah-description">Artikel komprehensif tentang dasar-dasar aqidah Ahlussunnah wal Jamaah. Membahas tentang sifat-sifat Allah, kenabian, hari akhir, dan perbedaannya dengan aliran-aliran lain dalam Islam.</p>
-                        <div class="dakwah-tags">
-                            <span class="dakwah-tag">Aqidah</span>
-                        </div>
-                        <a href="#" class="watch-button">
-                            <i class="fas fa-book-open"></i>
-                            Baca Selengkapnya
-                        </a>
-                    </div>
-                </div>
+                <!-- Data akan diisi melalui JavaScript -->
             </div>
 
             <div class="pagination">
@@ -263,46 +357,213 @@
         </div>
     </footer>
 
+    <div id="dakwahModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"></h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-meta">
+                <span class="modal-author"></span>
+                <span class="modal-date"></span>
+            </div>
+            <div class="modal-body"></div>
+            <span class="modal-tag"></span>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        // Mendapatkan semua tombol filter dan artikel
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const dakwahCards = document.querySelectorAll('.dakwah-card');
+        // Inisialisasi Supabase client
+        const supabaseUrl = 'https://iwnwqcxigtywetgcmlou.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3bndxY3hpZ3R5d2V0Z2NtbG91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU4MjQ4MTUsImV4cCI6MjA1MTQwMDgxNX0.fjdJlTVav4Gm8ku9rBmRuLoae5ViFxas7Uu069ItfnY'
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
 
-        // Menambahkan event listener untuk setiap tombol filter
+        // Fungsi untuk memformat tanggal
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' }
+            return new Date(dateString).toLocaleDateString('id-ID', options)
+        }
+
+        // Fungsi untuk mengambil dan menampilkan data dakwah
+        async function loadDakwah() {
+            try {
+                const { data, error } = await supabase
+                    .from('dakwah')
+                    .select('*')
+                    .order('tanggal', { ascending: false })
+
+                if (error) throw error
+
+                const dakwahContainer = document.querySelector('.dakwah-container')
+                dakwahContainer.innerHTML = '' // Bersihkan container
+
+                data.forEach(item => {
+                    const dakwahCard = `
+                        <div class="dakwah-card">
+                            <div class="dakwah-content">
+                                <div class="dakwah-meta">
+                                    <span><i class="fas fa-user"></i> ${item.penulis}</span>
+                                    <span><i class="fas fa-calendar"></i> ${formatDate(item.tanggal)}</span>
+                                </div>
+                                <h2 class="dakwah-title">${item.judul}</h2>
+                                <p class="dakwah-description">${item.konten.substring(0, 200)}...</p>
+                                <div class="dakwah-tags">
+                                    <span class="dakwah-tag">${item.kategori}</span>
+                                </div>
+                                <a href="#" class="watch-button" onclick="showFullContent('${item.id}')">
+                                    <i class="fas fa-book-open"></i>
+                                    Baca Selengkapnya
+                                </a>
+                            </div>
+                        </div>
+                    `
+                    dakwahContainer.innerHTML += dakwahCard
+                })
+
+            } catch (error) {
+                console.error('Error:', error)
+            }
+        }
+
+        // Fungsi untuk menampilkan konten lengkap
+        async function showFullContent(id) {
+            try {
+                const { data, error } = await supabase
+                    .from('dakwah')
+                    .select('*')
+                    .eq('id', id)
+                    .single()
+
+                if (error) throw error
+
+                // Tampilkan modal
+                const modal = document.getElementById('dakwahModal')
+                const modalTitle = modal.querySelector('.modal-title')
+                const modalAuthor = modal.querySelector('.modal-author')
+                const modalDate = modal.querySelector('.modal-date')
+                const modalBody = modal.querySelector('.modal-body')
+                const modalTag = modal.querySelector('.modal-tag')
+
+                // Isi konten modal
+                modalTitle.textContent = data.judul
+                modalAuthor.innerHTML = `<i class="fas fa-user"></i> ${data.penulis}`
+                modalDate.innerHTML = `<i class="fas fa-calendar"></i> ${formatDate(data.tanggal)}`
+                
+                // Format konten dengan paragraf
+                const formattedContent = data.konten
+                    .split('\n\n') // Split berdasarkan double newline
+                    .map(paragraph => `<p>${paragraph.trim()}</p>`)
+                    .join('')
+                modalBody.innerHTML = formattedContent
+                
+                modalTag.textContent = data.kategori
+
+                // Tampilkan modal
+                modal.style.display = 'block'
+                document.body.style.overflow = 'hidden' // Prevent scrolling
+
+            } catch (error) {
+                console.error('Error:', error)
+                alert('Terjadi kesalahan saat mengambil data artikel')
+            }
+        }
+
+        // Menangani penutupan modal
+        document.querySelector('.modal-close').addEventListener('click', () => {
+            const modal = document.getElementById('dakwahModal')
+            modal.style.display = 'none'
+            document.body.style.overflow = 'auto' // Enable scrolling
+        })
+
+        // Menutup modal ketika mengklik di luar konten
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('dakwahModal')
+            if (e.target === modal) {
+                modal.style.display = 'none'
+                document.body.style.overflow = 'auto'
+            }
+        })
+
+        // Load data saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', loadDakwah)
+
+        // Menangani filter
+        const filterButtons = document.querySelectorAll('.filter-btn')
         filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Menghapus kelas active dari semua tombol
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Menambahkan kelas active ke tombol yang diklik
-                button.classList.add('active');
+            button.addEventListener('click', async () => {
+                // Hapus kelas active dari semua tombol
+                filterButtons.forEach(btn => btn.classList.remove('active'))
+                // Tambahkan kelas active ke tombol yang diklik
+                button.classList.add('active')
 
-                // Mendapatkan kategori yang dipilih
-                const selectedCategory = button.textContent.toLowerCase();
+                const selectedCategory = button.textContent.trim()
+                
+                try {
+                    let query = supabase
+                        .from('dakwah')
+                        .select('*')
+                        .order('tanggal', { ascending: false })
 
-                // Filter artikel berdasarkan kategori
-                dakwahCards.forEach(card => {
-                    const tags = Array.from(card.querySelectorAll('.dakwah-tag'))
-                                    .map(tag => tag.textContent.toLowerCase());
-                    
-                    if (selectedCategory === 'semua' || tags.includes(selectedCategory)) {
-                        card.style.display = 'block';
-                        // Animasi fade in
-                        card.style.opacity = '0';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                        }, 50);
-                    } else {
-                        card.style.display = 'none';
+                    if (selectedCategory !== 'Semua') {
+                        query = query.eq('kategori', selectedCategory)
                     }
-                });
-            });
-        });
 
-        // Menambahkan transisi untuk animasi
-        dakwahCards.forEach(card => {
-            card.style.transition = 'opacity 0.3s ease';
-        });
+                    const { data, error } = await query
+
+                    if (error) throw error
+
+                    const dakwahContainer = document.querySelector('.dakwah-container')
+                    dakwahContainer.innerHTML = '' // Bersihkan container
+
+                    if (data.length === 0) {
+                        dakwahContainer.innerHTML = `
+                            <div class="dakwah-card">
+                                <div class="dakwah-content">
+                                    <p class="dakwah-description">Tidak ada artikel dalam kategori ini.</p>
+                                </div>
+                            </div>
+                        `
+                        return
+                    }
+
+                    data.forEach(item => {
+                        const dakwahCard = `
+                            <div class="dakwah-card">
+                                <div class="dakwah-content">
+                                    <div class="dakwah-meta">
+                                        <span><i class="fas fa-user"></i> ${item.penulis}</span>
+                                        <span><i class="fas fa-calendar"></i> ${formatDate(item.tanggal)}</span>
+                                    </div>
+                                    <h2 class="dakwah-title">${item.judul}</h2>
+                                    <p class="dakwah-description">${item.konten.substring(0, 200)}...</p>
+                                    <div class="dakwah-tags">
+                                        <span class="dakwah-tag">${item.kategori}</span>
+                                    </div>
+                                    <a href="#" class="watch-button" onclick="showFullContent('${item.id}')">
+                                        <i class="fas fa-book-open"></i>
+                                        Baca Selengkapnya
+                                    </a>
+                                </div>
+                            </div>
+                        `
+                        dakwahContainer.innerHTML += dakwahCard
+                    })
+
+                } catch (error) {
+                    console.error('Error:', error)
+                    const dakwahContainer = document.querySelector('.dakwah-container')
+                    dakwahContainer.innerHTML = `
+                        <div class="dakwah-card">
+                            <div class="dakwah-content">
+                                <p class="dakwah-description">Terjadi kesalahan saat memuat artikel.</p>
+                            </div>
+                        </div>
+                    `
+                }
+            })
+        })
     </script>
 </body>
 </html> 
