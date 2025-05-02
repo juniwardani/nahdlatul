@@ -285,7 +285,7 @@
    }
 
    function updatePagination() {
-     document.getElementById('page-info').textContent = `Halaman ${currentPage} dari ${totalPages}`;
+     document.getElementById('page-info').textContent = `${currentPage} dari ${totalPages}`;
      document.getElementById('prev-btn').disabled = currentPage === 1;
      document.getElementById('next-btn').disabled = currentPage === totalPages;
    }
