@@ -1,150 +1,620 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCNU Kotabaru - Portal Resmi</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="img/logo.jpg" alt="Logo NU">
-                <h1>PCNU Kotabaru</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="profil.html">Profil</a></li>
-                <li><a href="berita.html">Berita</a></li>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="galeri.html">Galeri</a></li>
-                <li><a href="dakwah.html">Dakwah</a></li>
-                <li><a href="kontak.html">Kontak</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Beranda - PCNU Kotabaru</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+   href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+   rel="stylesheet"
+  />
+  <link
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+   rel="stylesheet"
+  />
+  <style>
+   body {
+    font-family: "Roboto", sans-serif;
+   }
+  </style>
+ </head>
+ <body class="bg-gray-50 text-gray-800">
+  <header class="bg-green-800 text-green-100 shadow-md fixed w-full z-30">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+     <a class="flex items-center space-x-3" href="index.html">
+      <img
+       alt="Logo PCNU Kotabaru, green and gold emblem with Islamic calligraphy" 
+       class="h-16 w-16 object-contain"
+       height="64"
+       src="img/logo.jpg"
+       width="64"
+      />
+      <span class="text-2xl font-bold text-green-100">PCNU Kotabaru</span>
+     </a>
+     <nav class="hidden md:flex space-x-8 font-semibold text-green-100">
+       <a 
+         class="hover:text-green-300 transition" 
+         href="index.html"
+       >
+         Beranda
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="tentang.html"
+       >
+         Tentang Kami
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="program.html"
+       >
+         Program
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="berita.html"
+       >
+         Berita
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="artikel.html"
+       >
+         Artikel
+       </a>
+      <a
+       aria-current="page"
+         class="hover:text-green-300 transition"
+       href="galeri.html"
+     >
+       Galeri
+     </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="kontak.html"
+       >
+         Kontak
+       </a>
+     </nav>
+     <button
+      aria-label="Toggle menu"
+      class="md:hidden focus:outline-none focus:ring-2 focus:ring-green-300"
+      id="menu-btn"
+     >
+      <i class="fas fa-bars text-2xl text-green-100"></i>
+     </button>
+    </div>
+   </div>
+   <nav
+    aria-label="Mobile menu"
+    class="md:hidden bg-green-800 border-t border-green-700 hidden"
+    id="mobile-menu"
+   >
+    <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="index.html"
+    >
+      Beranda
+     </a>
+    <a
+     class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="tentang.html"
+    >
+      Tentang Kami
+     </a>
+    <a
+     class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+     href="program.html"
+    >
+      Program
+     </a>
+    <a
+     class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="berita.html"
+    >
+      Berita
+     </a>
+    <a
+     class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="artikel.html"
+    >
+      Artikel
+     </a>
+    <a
+class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+     href="galeri.html"
+    >
+     Galeri
+    </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="kontak.html"
+     >
+      Kontak
+     </a>
+ 
+   </nav>
+  </header>
 
-    <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Selamat Datang di PCNU Kotabaru</h1>
-                <p>Ahlussunnah Wal Jamaah<br>Asy'ariyyah Ghazaliyyah Syafi'iyyah</p>
-                <div class="hero-buttons">
-                    <a href="profil.html" class="btn btn-primary">Tentang Kami</a>
-                    <a href="program.html" class="btn btn-secondary">Program Kami</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="highlight">
-            <div class="highlight-container">
-                <div class="highlight-item">
-                    <i class="fas fa-mosque"></i>
-                    <h3>Tradisi</h3>
-                    <p>Melestarikan tradisi Ahlussunnah Wal Jamaah</p>
-                </div>
-                <div class="highlight-item">
-                    <i class="fas fa-book"></i>
-                    <h3>Pendidikan</h3>
-                    <p>Mengembangkan pendidikan Islam moderat</p>
-                </div>
-                <div class="highlight-item">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Sosial</h3>
-                    <p>Memberdayakan masyarakat</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="berita-terkini">
-            <div class="section-header">
-                <h2>Berita Terkini</h2>
-                <a href="berita.html" class="view-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="berita-grid">
-                <div class="berita-card">
-                    <i class="fas fa-newspaper"></i>
-                    <h3>Pengajian Akbar PCNU Kotabaru</h3>
-                    <p>Kegiatan pengajian akbar yang dihadiri ribuan jamaah...</p>
-                    <a href="#" class="read-more">Baca Selengkapnya</a>
-                </div>
-                <div class="berita-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Santunan Anak Yatim</h3>
-                    <p>Program rutin santunan anak yatim dan dhuafa...</p>
-                    <a href="#" class="read-more">Baca Selengkapnya</a>
-                </div>
-                <div class="berita-card">
-                    <i class="fas fa-user-graduate"></i>
-                    <h3>Pelatihan Da'i Muda</h3>
-                    <p>Pembinaan dan pelatihan da'i muda NU...</p>
-                    <a href="#" class="read-more">Baca Selengkapnya</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="program-unggulan">
-            <div class="section-header">
-                <h2>Program Unggulan</h2>
-                <a href="program.html" class="view-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="program-slider">
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-book-quran"></i>
-                    </div>
-                    <h3>Program Keagamaan</h3>
-                    <p>Pengajian Rutin Bulanan dan Pembinaan Majelis Taklim</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Program Pendidikan</h3>
-                    <p>Beasiswa Santri dan Pembinaan Madrasah Diniyah</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Program Sosial</h3>
-                    <p>Santunan Anak Yatim dan Bantuan Sembako Dhuafa</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>PCNU Kotabaru</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru</p>
-                <p><i class="fas fa-envelope"></i> Email: kotabaru@nu.or.id</p>
-                <p><i class="fas fa-phone"></i> Telp: (+62) 812-5656-8899, (+62) 821-5175-8303</p>
-            </div>
-
-            <div class="footer-section">
-                <h3>Media Sosial</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+  <main class="pt-20">
+   <!-- Hero Section -->
+   <section
+    aria-label="Hero section with PCNU Kotabaru introduction"
+    class="relative bg-green-900 text-green-50 overflow-hidden"
+    id="home"
+   >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center min-h-[calc(100vh-4rem)] py-20"
+     >
+      <div class="space-y-8">
+       <h1
+        class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight"
+       >
+        Selamat Datang di
+        <br />
+        <span class="text-yellow-400">PCNU Kotabaru</span>
+       </h1>
+       <p class="text-lg sm:text-xl max-w-xl leading-relaxed text-green-200">
+        PCNU Kotabaru adalah wadah organisasi Nahdlatul Ulama di Kotabaru yang
+        berkomitmen membina umat melalui program dakwah, pendidikan, sosial,
+        dan pemberdayaan masyarakat.
+       </p>
+       <div class="flex flex-wrap gap-4">
+        <a
+         class="inline-flex items-center justify-center px-6 py-3 bg-yellow-400 text-green-900 font-semibold rounded-md shadow-md hover:bg-yellow-300 transition"
+         href="program.html"
+         >Lihat Program</a
+        >
+        <a
+         class="inline-flex items-center justify-center px-6 py-3 border border-yellow-400 text-yellow-400 font-semibold rounded-md hover:bg-yellow-400 hover:text-green-900 transition"
+         href="#contact"
+         >Hubungi Kami</a
+        >
+       </div>
+      </div>
+      <div class="relative w-full max-w-md mx-auto md:mx-0">
+       <img
+        alt="Community gathering of PCNU Kotabaru members in traditional clothing, smiling and engaging in discussion outdoors with green trees in background"
+        class="rounded-lg shadow-lg object-cover w-full h-80 sm:h-96"
+        height="400"
+        src="photo/photo_11.jpeg"
+        width="600"
+       />
+       <div
+        class="absolute bottom-4 right-4 bg-green-800 bg-opacity-70 text-yellow-400 px-3 py-1 rounded-md text-sm font-semibold"
+       >
+        PCNU Kotabaru
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- About Section -->
+   <section
+    aria-label="About PCNU Kotabaru"
+    class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10"
+    id="about"
+   >
+    <h2
+     class="text-3xl font-extrabold text-green-800 mb-6 border-b-4 border-green-700 inline-block tracking-wide"
+    >
+     Tentang PCNU Kotabaru
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+     <div>
+      <p class="text-gray-700 text-lg leading-relaxed text-justify">
+       PCNU Kotabaru adalah organisasi yang berperan aktif dalam membina umat
+       Islam di Kotabaru melalui berbagai program dakwah, pendidikan, sosial,
+       dan pemberdayaan masyarakat. Kami berkomitmen untuk menjaga nilai-nilai
+       Ahlussunnah wal Jamaah dan meningkatkan kesejahteraan umat.
+      </p>
+      <p class="mt-4 text-gray-700 text-lg leading-relaxed text-justify">
+       Dengan jaringan luas dan dukungan masyarakat, PCNU Kotabaru terus
+       berupaya menjadi pusat kegiatan keagamaan dan sosial yang inklusif dan
+       bermanfaat bagi seluruh lapisan masyarakat.
+      </p>
+      <a
+       class="inline-block mt-6 px-6 py-3 bg-green-700 text-green-100 font-semibold rounded-md shadow-md hover:bg-green-600 transition"
+       href="tentang.html"
+       >Pelajari Lebih Lanjut</a
+      >
+     </div>
+     <div>
+      <img
+       alt="PCNU Kotabaru building with members engaging in community activities, green and gold colors, sunny day with blue sky"
+       class="rounded-lg shadow-lg object-cover w-full h-80 sm:h-96"
+       height="400"
+       src="photo/photo_55.jpeg"
+       width="600"
+      />
+     </div>
+    </div>
+   </section>
+   <!-- Programs Preview Section -->
+   <section
+    aria-label="Preview of PCNU Kotabaru programs"
+    class="bg-green-50 py-16"
+    id="programs"
+   >
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+     <h2
+      class="text-3xl font-extrabold text-green-800 mb-6 border-b-4 border-green-700 inline-block tracking-wide text-center"
+     >
+      Program Unggulan Kami
+     </h2>
+     <div
+      id="programs-list"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+      role="list"
+     ></div>
+     <div class="text-center">
+      <a
+       href="program.html"
+       class="inline-block mt-4 px-8 py-3 bg-yellow-400 text-green-900 font-semibold rounded-md shadow-md hover:bg-yellow-300 transition"
+       >Lihat Selengkapnya</a
+      >
+     </div>
+    </div>
+   </section>
+   <!-- News Section -->
+   <section
+    aria-label="Latest news from PCNU Kotabaru"
+    class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8"
+    id="news"
+   >
+    <h2
+     class="text-3xl font-extrabold text-green-800 mb-6 border-b-4 border-green-700 inline-block tracking-wide text-center"
+    >
+     Berita Terbaru
+    </h2>
+    <div
+     id="news-list"
+     class="grid grid-cols-1 md:grid-cols-3 gap-8"
+    ></div>
+    <div class="text-center">
+     <a
+      href="berita.html"
+      class="inline-block mt-4 px-8 py-3 bg-yellow-400 text-green-900 font-semibold rounded-md shadow-md hover:bg-yellow-300 transition"
+      >Lihat Selengkapnya</a
+     >
+    </div>
+   </section>
+   <!-- Contact Section -->
+   <section
+    aria-label="Contact PCNU Kotabaru"
+    class="bg-green-900 text-green-50 py-16 px-4 sm:px-6 lg:px-8"
+    id="contact"
+   >
+    <div class="max-w-4xl mx-auto space-y-8">
+     <h2
+      class="text-3xl font-extrabold border-b-4 border-yellow-400 inline-block tracking-wide"
+     >
+      Hubungi Kami
+     </h2>
+     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div class="space-y-4">
+       <div class="flex items-center space-x-4">
+        <i class="fas fa-map-marker-alt text-yellow-400 text-xl"></i>
+        <address class="not-italic text-green-200">
+         Jl. Raya Kotabaru No.123, Kotabaru, Kalimantan Selatan, Indonesia
+        </address>
+       </div>
+       <div class="flex items-center space-x-4">
+        <i class="fas fa-phone-alt text-yellow-400 text-xl"></i>
+        <a
+         class="text-green-200 hover:text-yellow-400 transition"
+         href="tel:+628123456789"
+         >+62 812-3456-789</a
+        >
+       </div>
+       <div class="flex items-center space-x-4">
+        <i class="fas fa-envelope text-yellow-400 text-xl"></i>
+        <a
+         class="text-green-200 hover:text-yellow-400 transition"
+         href="mailto:info@pcnukotabaru.or.id"
+         >info@pcnukotabaru.or.id</a
+        >
+       </div>
+      </div>
+      <form
+       action="#"
+       aria-label="Contact form"
+       class="space-y-6 bg-green-800 p-6 rounded-lg shadow-lg"
+       method="POST"
+      >
+       <div>
+        <label class="block mb-1 font-semibold" for="name">Nama</label>
+        <input
+         class="w-full rounded-md border border-green-600 bg-green-700 text-green-50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+         id="name"
+         name="name"
+         required
+         type="text"
+        />
+       </div>
+       <div>
+        <label class="block mb-1 font-semibold" for="email">Email</label>
+        <input
+         class="w-full rounded-md border border-green-600 bg-green-700 text-green-50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+         id="email"
+         name="email"
+         required
+         type="email"
+        />
+       </div>
+       <div>
+        <label class="block mb-1 font-semibold" for="message">Pesan</label>
+        <textarea
+         class="w-full rounded-md border border-green-600 bg-green-700 text-green-50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+         id="message"
+         name="message"
+         required
+         rows="4"
+        ></textarea>
+       </div>
+       <button
+        class="w-full bg-yellow-400 text-green-900 font-semibold py-3 rounded-md shadow-md hover:bg-yellow-300 transition"
+        type="submit"
+       >
+        Kirim Pesan
+       </button>
+      </form>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-green-800 text-green-100 py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">PCNU Kotabaru</h3>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-map-marker-alt"></i>
+            Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-envelope"></i>
+            Email: kotabaru@nu.or.id
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-phone"></i>
+            Telp: (+62) 812-5656-8899, (+62) 821-5175-8303
+          </p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 PCNU Kotabaru. All rights reserved.</p>
-        </div>
-    </footer>
 
-    <script src="js/main.js"></script>
-</body>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
+          <div style="display: flex; gap: 1rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 pt-4 border-t border-green-700 text-center">
+        <p>&copy; 2024 PCNU Kotabaru. Semua hak cipta dilindungi undang-undang.</p>
+      </div>
+    </div>
+  </footer>
+ </body>
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script>
+   // Inisialisasi Supabase client
+   const supabaseUrl = 'https://iwnwqcxigtywetgcmlou.supabase.co'
+   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3bndxY3hpZ3R5d2V0Z2NtbG91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU4MjQ4MTUsImV4cCI6MjA1MTQwMDgxNX0.fjdJlTVav4Gm8ku9rBmRuLoae5ViFxas7Uu069ItfnY'
+   const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
+
+   // Fungsi untuk menampilkan notifikasi
+   function showNotification(message, type = 'success') {
+       const notification = document.createElement('div');
+       notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white font-semibold z-50 ${
+           type === 'success' ? 'bg-green-600' : 'bg-red-600'
+       }`;
+       notification.textContent = message;
+       document.body.appendChild(notification);
+       
+       setTimeout(() => {
+           notification.remove();
+       }, 3000);
+   }
+
+   // Fungsi untuk mengirim pesan ke Supabase
+   async function sendMessage(event) {
+       event.preventDefault();
+       
+       const name = document.getElementById('name').value;
+       const email = document.getElementById('email').value;
+       const message = document.getElementById('message').value;
+       
+       try {
+           const { data, error } = await supabase
+               .from('messages')
+               .insert([
+                   {
+                       name: name,
+                       email: email,
+                       message: message,
+                       created_at: new Date().toISOString()
+                   }
+               ]);
+               
+           if (error) throw error;
+           
+           // Reset form
+           event.target.reset();
+           
+           // Tampilkan notifikasi sukses
+           showNotification('Pesan Anda berhasil terkirim!');
+           
+       } catch (error) {
+           console.error('Error:', error);
+           showNotification('Terjadi kesalahan saat mengirim pesan', 'error');
+       }
+   }
+
+   const btn = document.getElementById("menu-btn");
+   const menu = document.getElementById("mobile-menu");
+
+   if (btn && menu) {
+    btn.addEventListener("click", () => {
+     menu.classList.toggle("hidden");
+    });
+   }
+
+   // Event listener untuk form kontak
+   document.addEventListener('DOMContentLoaded', function() {
+       const form = document.querySelector('form');
+       if (form) {
+           form.addEventListener('submit', sendMessage);
+       }
+   });
+
+   // Data arrays for programs and news
+   const programs = [
+    {
+     title: "LAZISNU",
+     description:
+      "Pengelolaan dana zakat, infak, dan sedekah secara transparan untuk pemberdayaan masyarakat dan kegiatan dakwah.",
+     image:
+      "https://storage.googleapis.com/a1aa/image/f4545870-ea05-44f3-d341-978a93417e6e.jpg",
+     alt: "Volunteers distributing aid packages to community members in a village setting, representing LAZISNU program",
+    },
+    {
+     title: "Simpanan TAAT",
+     description:
+      "Program tabungan anggota dengan kemudahan akses pinjaman dan peningkatan literasi keuangan keluarga.",
+     image:
+      "https://storage.googleapis.com/a1aa/image/44f53155-2550-4442-e09a-454c73d99219.jpg",
+     alt: "A family discussing finances at home with a smiling father holding a notebook, symbolizing Simpanan TAAT program",
+    },
+    {
+     title: "Pengajian Nazhom Aqidatul Awam",
+     description:
+      "Kegiatan rutin memahami kitab Nazhom Aqidatul Awam untuk membina keilmuan dan pemahaman ajaran Ahlussunnah wal Jamaah.",
+     image:
+      "https://storage.googleapis.com/a1aa/image/cfa5b4d2-4bd8-4dc7-8b7a-a0b66b412fb8.jpg",
+     alt: "Group of people attentively listening to a religious teacher explaining Nazhom Aqidatul Awam in a mosque",
+    },
+   ];
+
+   const news = [
+    {
+     title: "PCNU Kotabaru Gelar Pengajian Akbar",
+     description:
+      "Pengajian akbar dihadiri ratusan jamaah untuk memperkuat ukhuwah dan keilmuan.",
+     image:
+      "https://storage.googleapis.com/a1aa/image/3d48b8ac-151a-40d4-beb0-8115e273821e.jpg",
+     alt: "PCNU Kotabaru members attending a community event with banners and green decorations",
+    },
+    {
+     title: "Bantuan Sosial untuk Korban Banjir",
+     description:
+      "LAZISNU menyalurkan bantuan sosial kepada masyarakat terdampak banjir di Kotabaru.",
+     image:
+      "https://storage.googleapis.com/a1aa/image/c111741b-a740-4ae0-7c9e-c77ca8b897b0.jpg",
+     alt: "Volunteers distributing food packages to flood victims in Kotabaru",
+    },
+    {
+     title: "Diklat Guru Mengaji Sukses Digelar",
+     description:
+      "Pelatihan guru mengaji dengan metode efektif dan sertifikasi kompetensi.",
+     image:
+      "https://storage.googleapis.com/a1aa/image/8bca0f66-7a5a-4934-98be-0ba20efc8f2d.jpg",
+     alt: "Training session for guru mengaji with participants practicing Quran reading",
+    },
+   ];
+
+   // Function to render programs
+   function renderPrograms() {
+    const container = document.getElementById("programs-list");
+    container.innerHTML = "";
+    programs.forEach((program) => {
+     const article = document.createElement("article");
+     article.setAttribute(
+      "class",
+      "bg-white border border-green-300 rounded-lg p-6 shadow-md cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400"
+     );
+     article.setAttribute("tabindex", "0");
+     article.setAttribute("role", "listitem");
+
+     const img = document.createElement("img");
+     img.src = program.image;
+     img.alt = program.alt;
+     img.className = "rounded-md mb-4 object-cover w-full h-40";
+     img.height = 250;
+     img.width = 400;
+
+     const h3 = document.createElement("h3");
+     h3.className = "font-semibold text-green-700 mb-2";
+     h3.textContent = program.title;
+
+     const p = document.createElement("p");
+     p.className = "text-gray-700 text-justify text-sm";
+     p.textContent = program.description;
+
+     article.appendChild(img);
+     article.appendChild(h3);
+     article.appendChild(p);
+
+     container.appendChild(article);
+    });
+   }
+
+   // Function to render news
+   function renderNews() {
+    const container = document.getElementById("news-list");
+    container.innerHTML = "";
+    news.forEach((item) => {
+     const article = document.createElement("article");
+     article.setAttribute(
+      "class",
+      "bg-white border border-green-300 rounded-lg shadow-md overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400"
+     );
+     article.setAttribute("tabindex", "0");
+
+     const img = document.createElement("img");
+     img.src = item.image;
+     img.alt = item.alt;
+     img.className = "w-full h-40 object-cover";
+     img.height = 250;
+     img.width = 400;
+
+     const div = document.createElement("div");
+     div.className = "p-5";
+
+     const h3 = document.createElement("h3");
+     h3.className = "font-semibold text-green-700 mb-2 text-lg";
+     h3.textContent = item.title;
+
+     const p = document.createElement("p");
+     p.className = "text-gray-700 text-sm";
+     p.textContent = item.description;
+
+     div.appendChild(h3);
+     div.appendChild(p);
+
+     article.appendChild(img);
+     article.appendChild(div);
+
+     container.appendChild(article);
+    });
+   }
+
+   // Render on DOMContentLoaded
+   document.addEventListener("DOMContentLoaded", () => {
+    renderPrograms();
+    renderNews();
+   });
+  </script>
 </html>
