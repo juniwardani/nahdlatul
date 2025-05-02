@@ -48,6 +48,28 @@
     #modal-content {
       text-align: justify;
     }
+    /* Hover effects */
+    .news-card {
+      transition: all 0.3s ease;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .hover-button {
+      transition: all 0.3s ease;
+    }
+    .hover-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover {
+      transform: translateY(-3px);
+      color: #4ade80 !important;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&family=Amiri&family=Lateef&display=swap" rel="stylesheet" />
  </head>
@@ -235,16 +257,16 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
         <div>
           <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
           <div style="display: flex; gap: 1rem;">
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-youtube"></i>
             </a>
           </div>
@@ -255,145 +277,12 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
       </div>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    const newsData = [
-      {
-        title: "Rapat Koordinasi PCNU Kotabaru 2024",
-        category: "Kegiatan",
-        author: "Admin PCNU",
-        date: "2024-04-10",
-        content: `
-<p>PCNU Kotabaru menggelar rapat koordinasi untuk menyusun program kerja tahun 2024 yang lebih efektif dan berdampak.</p>
-<p><strong>Kegiatan ini dihadiri oleh seluruh pengurus dan anggota</strong> untuk membahas strategi dakwah dan sosial kemasyarakatan.</p>
-<p>Berikut adalah kutipan doa pembuka rapat dalam bahasa Arab:</p>
-<p class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
-<p><em>Artinya: Dengan nama Allah Yang Maha Pengasih lagi Maha Penyayang.</em></p>
-<img src="https://placehold.co/600x300?text=Rapat+Koordinasi+PCNU+Kotabaru+2024" alt="Foto rapat koordinasi PCNU Kotabaru tahun 2024, menampilkan beberapa pengurus duduk di ruang rapat dengan latar belakang bendera dan spanduk organisasi" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      },
-      {
-        title: "Pembukaan Madrasah Diniyah Baru",
-        category: "Pendidikan",
-        author: "Admin PCNU",
-        date: "2024-03-25",
-        content: `
-<p>PCNU Kotabaru membuka madrasah diniyah baru untuk meningkatkan pendidikan agama bagi anak-anak di Kotabaru.</p>
-<p>Madrasah ini menyediakan kurikulum yang sesuai dengan nilai-nilai Ahlussunnah wal Jamaah.</p>
-<p>Contoh bacaan Al-Qur'an yang diajarkan:</p>
-<p class="arabic-text">اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ</p>
-<p><strong>Artinya:</strong> Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan.</p>
-<img src="https://placehold.co/600x300?text=Madrasah+Diniyah+Baru" alt="Foto pembukaan madrasah diniyah baru di Kotabaru, menampilkan anak-anak dan guru sedang beraktivitas belajar di dalam kelas dengan dekorasi Islami" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      },
-      {
-        title: "Bantuan Sosial untuk Korban Banjir",
-        category: "Sosial",
-        author: "Admin PCNU",
-        date: "2024-02-15",
-        content: `
-<p>PCNU Kotabaru menyalurkan bantuan sosial kepada masyarakat yang terdampak banjir di beberapa desa.</p>
-<p>Bantuan berupa paket sembako dan kebutuhan pokok lainnya disalurkan secara langsung oleh relawan.</p>
-<p>Doa keselamatan dalam bahasa Arab:</p>
-<p class="arabic-text">اللَّهُمَّ احْفَظْنَا مِنَ الْفِتَنِ</p>
-<p><em>Artinya: Ya Allah, lindungilah kami dari segala fitnah.</em></p>
-<img src="https://placehold.co/600x300?text=Bantuan+Sosial+Korban+Banjir" alt="Foto relawan PCNU Kotabaru sedang menyalurkan paket sembako kepada warga yang terdampak banjir di desa, dengan latar belakang rumah-rumah yang terendam air" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      },
-      {
-        title: "Aksi Bersih Lingkungan oleh Pemuda PCNU",
-        category: "Kegiatan",
-        author: "Admin PCNU",
-        date: "2024-01-30",
-        content: `
-<p>Pemuda PCNU Kotabaru mengadakan aksi bersih lingkungan sebagai bentuk kepedulian terhadap alam dan masyarakat.</p>
-<p>Kegiatan ini melibatkan banyak relawan dan mendapat dukungan dari masyarakat setempat.</p>
-<p>Doa memulai pekerjaan:</p>
-<p class="arabic-text">اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا</p>
-<p><strong>Artinya:</strong> Ya Allah, berkahilah kami dalam rezeki yang Engkau berikan.</p>
-<img src="https://placehold.co/600x300?text=Aksi+Bersih+Lingkungan+Pemuda+PCNU" alt="Foto pemuda PCNU Kotabaru sedang membersihkan lingkungan, mengumpulkan sampah di area taman dengan semangat kebersamaan" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      },
-      {
-        title: "Kegiatan Amal Ramadan 2024",
-        category: "Sosial",
-        author: "Admin PCNU",
-        date: "2023-12-20",
-        content: `
-<p>PCNU Kotabaru mengadakan kegiatan amal selama bulan Ramadan untuk membantu warga kurang mampu.</p>
-<p>Kegiatan ini meliputi pembagian paket makanan dan santunan kepada anak yatim.</p>
-<p>Doa berbuka puasa:</p>
-<p class="arabic-text">ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ</p>
-<p><em>Artinya: Dahaga telah hilang dan urat-urat basah.</em></p>
-<img src="https://placehold.co/600x300?text=Kegiatan+Amal+Ramadan+2024" alt="Foto pembagian paket makanan dan santunan oleh PCNU Kotabaru kepada anak yatim dan warga kurang mampu selama bulan Ramadan" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      },
-      {
-        title: "Sinergi dengan Pemerintah Daerah",
-        category: "Kegiatan",
-        author: "Admin PCNU",
-        date: "2023-11-10",
-        content: `
-<p>PCNU Kotabaru memperkuat sinergi dengan pemerintah daerah untuk mendukung pembangunan sosial dan keagamaan.</p>
-<p>Pertemuan ini membahas berbagai program kolaborasi yang akan dilaksanakan.</p>
-<p>Doa keberhasilan:</p>
-<p class="arabic-text">رَبِّ اشْرَحْ لِي صَدْرِي</p>
-<p><strong>Artinya:</strong> Ya Tuhanku, lapangkanlah dadaku.</p>
-<img src="https://placehold.co/600x300?text=Sinergi+Pemerintah+Daerah" alt="Foto pertemuan antara pengurus PCNU Kotabaru dengan pejabat pemerintah daerah di ruang rapat resmi" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      },
-      {
-        title: "Pelatihan Pemuda PCNU Kotabaru",
-        category: "Pendidikan",
-        author: "Admin PCNU",
-        date: "2023-10-05",
-        content: `
-<p>PCNU Kotabaru mengadakan pelatihan kepemudaan untuk meningkatkan kapasitas dan peran aktif pemuda dalam kegiatan keagamaan dan sosial.</p>
-<p>Doa memohon ilmu:</p>
-<p class="arabic-text">رَبِّ زِدْنِي عِلْمًا</p>
-<p><em>Artinya: Ya Tuhan, tambahkanlah ilmuku.</em></p>
-<img src="https://placehold.co/600x300?text=Pelatihan+Pemuda+PCNU" alt="Foto pelatihan pemuda PCNU Kotabaru, menampilkan peserta muda sedang mengikuti sesi pelatihan di aula" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      },
-      {
-        title: "Festival Budaya Islam Kotabaru",
-        category: "Kegiatan",
-        author: "Admin PCNU",
-        date: "2023-09-15",
-        content: `
-<p>Festival budaya Islam yang diselenggarakan oleh PCNU Kotabaru berhasil menarik ribuan pengunjung dan menampilkan berbagai kesenian tradisional serta dakwah.</p>
-<p>Doa keberkahan:</p>
-<p class="arabic-text">اللَّهُمَّ اجْعَلْنَا مِنَ الْمُبَارَكِينَ</p>
-<p><strong>Artinya:</strong> Ya Allah, jadikanlah kami termasuk orang-orang yang diberkahi.</p>
-<img src="https://placehold.co/600x300?text=Festival+Budaya+Islam+Kotabaru" alt="Foto festival budaya Islam di Kotabaru, menampilkan panggung seni dan pengunjung yang antusias" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      },
-      {
-        title: "Penggalangan Dana untuk Renovasi Masjid",
-        category: "Sosial",
-        author: "Admin PCNU",
-        date: "2023-08-20",
-        content: `
-<p>PCNU Kotabaru menggalang dana untuk renovasi masjid utama di Kotabaru agar dapat memberikan kenyamanan lebih bagi jamaah.</p>
-<p>Doa memohon kemudahan:</p>
-<p class="arabic-text">يَا مُسَهِّلَ الْأُمُورِ</p>
-<p><em>Artinya: Wahai Yang Memudahkan Segala Urusan.</em></p>
-<img src="https://placehold.co/600x300?text=Penggalangan+Dana+Renovasi+Masjid" alt="Foto penggalangan dana oleh PCNU Kotabaru untuk renovasi masjid utama, menampilkan kotak sumbangan dan pengurus yang berdiskusi" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      },
-      {
-        title: "Seminar Moderasi Beragama",
-        category: "Kegiatan",
-        author: "Admin PCNU",
-        date: "2023-07-10",
-        content: `
-<p>Seminar moderasi beragama yang diadakan PCNU Kotabaru bertujuan memperkuat toleransi dan kerukunan antarumat beragama di Kotabaru.</p>
-<p>Doa kedamaian:</p>
-<p class="arabic-text">رَبِّ اجْعَلْنَا مُسْلِمَيْنِ لَكَ</p>
-<p><strong>Artinya:</strong> Ya Tuhanku, jadikanlah kami orang-orang yang tunduk kepada-Mu.</p>
-<img src="https://placehold.co/600x300?text=Seminar+Moderasi+Beragama" alt="Foto seminar moderasi beragama di Kotabaru, menampilkan pembicara dan peserta seminar di aula" class="my-4 rounded-md shadow-md w-full object-cover" />
-        `,
-      }
-    ];
+      // Inisialisasi Supabase client
+      const supabaseUrl = 'https://iwnwqcxigtywetgcmlou.supabase.co'
+      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3bndxY3hpZ3R5d2V0Z2NtbG91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU4MjQ4MTUsImV4cCI6MjA1MTQwMDgxNX0.fjdJlTVav4Gm8ku9rBmRuLoae5ViFxas7Uu069ItfnY'
+      const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
 
     const newsContainer = document.getElementById("news-container");
     const paginationContainer = document.getElementById("pagination");
@@ -405,12 +294,35 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
 
     const itemsPerPage = 5;
     let currentPage = 1;
-    const totalPages = Math.ceil(newsData.length / itemsPerPage);
+    let newsData = [];
+    let totalPages = 0;
 
     function formatDate(dateStr) {
       const options = { year: "numeric", month: "long", day: "numeric" };
       const date = new Date(dateStr);
       return date.toLocaleDateString("id-ID", options);
+    }
+
+    async function fetchNews() {
+      try {
+        const { data, error } = await supabase
+          .from('berita')
+          .select('*')
+          .order('tanggal', { ascending: false });
+
+        if (error) throw error;
+
+        newsData = data;
+        totalPages = Math.ceil(newsData.length / itemsPerPage);
+        updatePage();
+      } catch (error) {
+        console.error('Error:', error);
+        newsContainer.innerHTML = `
+          <div class="text-center text-red-600">
+            Terjadi kesalahan saat mengambil data berita.
+          </div>
+        `;
+      }
     }
 
     function renderNewsPage(page) {
@@ -419,30 +331,40 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
       const end = start + itemsPerPage;
       const pageItems = newsData.slice(start, end);
 
+      if (pageItems.length === 0) {
+        newsContainer.innerHTML = `
+          <div class="text-center text-gray-600">
+            Tidak ada berita yang ditemukan.
+          </div>
+        `;
+        return;
+      }
+
       pageItems.forEach((item, index) => {
         const article = document.createElement("article");
-        article.className = "bg-green-50 rounded-lg shadow-md p-6";
+        article.className = "bg-green-50 rounded-lg shadow-md p-6 news-card";
 
         // Strip HTML tags for preview text, then truncate
         const tempDiv = document.createElement("div");
-        tempDiv.innerHTML = item.content;
+        tempDiv.innerHTML = item.konten;
         let textContent = tempDiv.textContent || tempDiv.innerText || "";
         if (textContent.length > 250) {
           textContent = textContent.slice(0, 250) + "...";
         }
 
         article.innerHTML = `
-          <h2 class="text-2xl font-semibold text-green-700 mb-2">${item.title}</h2>
+          <h2 class="text-2xl font-semibold text-green-700 mb-2">${item.judul}</h2>
           <div class="mb-2 flex flex-wrap gap-4 text-sm text-green-800 font-semibold">
-            <span class="bg-green-200 rounded-full px-3 py-1">${item.category}</span>
-            <span>Penulis: ${item.author}</span>
-            <span>Tanggal: ${formatDate(item.date)}</span>
+            <span class="bg-green-200 rounded-full px-3 py-1">${item.kategori}</span>
+            <span>Penulis: ${item.penulis}</span>
+            <span>Tanggal: ${formatDate(item.tanggal)}</span>
           </div>
+          ${item.gambar_url ? `<img src="${item.gambar_url}" alt="${item.judul}" class="w-full h-48 object-cover rounded-lg mb-4">` : ''}
           <p class="text-gray-700 text-justify mb-4">${textContent}</p>
           <button
-            class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition font-semibold"
+            class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition font-semibold hover-button"
             data-news-index="${start + index}"
-            aria-label="Baca selengkapnya berita ${item.title}"
+            aria-label="Baca selengkapnya berita ${item.judul}"
           >
             Baca Selengkapnya
           </button>
@@ -453,6 +375,8 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
 
     function renderPagination() {
       paginationContainer.innerHTML = "";
+
+      if (totalPages <= 1) return;
 
       // Previous button
       const prevBtn = document.createElement("button");
@@ -526,9 +450,9 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
 
     function openModal(index) {
       const article = newsData[index];
-      modalTitle.textContent = article.title;
-      modalMeta.textContent = `Kategori: ${article.category} | Penulis: ${article.author} | Tanggal: ${formatDate(article.date)}`;
-      modalContent.innerHTML = article.content;
+      modalTitle.textContent = article.judul;
+      modalMeta.textContent = `Kategori: ${article.kategori} | Penulis: ${article.penulis} | Tanggal: ${formatDate(article.tanggal)}`;
+      modalContent.innerHTML = article.konten;
       modal.classList.remove("hidden");
       document.body.style.overflow = "hidden";
     }
@@ -545,15 +469,14 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
       }
     });
 
-    // Close modal on ESC key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && !modal.classList.contains("hidden")) {
         closeModal();
       }
     });
 
-    // Initial render
-    updatePage();
+    // Initial load
+    fetchNews();
   </script>
  </body>
 </html>

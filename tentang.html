@@ -18,6 +18,28 @@
    body {
     font-family: "Roboto", sans-serif;
    }
+   /* Hover effects */
+   .pengurus-card {
+     transition: all 0.3s ease;
+   }
+   .pengurus-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+   }
+   .hover-button {
+     transition: all 0.3s ease;
+   }
+   .hover-button:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+   .social-icon {
+     transition: all 0.3s ease;
+   }
+   .social-icon:hover {
+     transform: translateY(-3px);
+     color: #4ade80 !important;
+   }
   </style>
  </head>
  <body class="bg-gray-50 text-gray-800">
@@ -151,28 +173,16 @@
     <div class="grid md:grid-cols-2 gap-12 items-center">
      <div class="text-justify">
       <p class="text-gray-700 leading-relaxed mb-6">
-       Pengurus Cabang Nahdlatul Ulama (PCNU) Kotabaru adalah organisasi
-       keagamaan yang berperan aktif dalam pengembangan dakwah,
-       pendidikan, dan sosial kemasyarakatan di wilayah Kotabaru,
-       Kalimantan Selatan. Kami berkomitmen untuk menjaga nilai-nilai
-       Ahlussunnah wal Jamaah dan meningkatkan kualitas umat melalui
-       berbagai program strategis yang berorientasi pada kemajuan dan
-       kesejahteraan masyarakat.
+        PCNU Kotabaru berperan aktif dalam memfasilitasi kegiatan dakwah, sosial, dan pendidikan di Bumi Saijaan. Melalui program-program seperti LAZISNU, Lailatul Ijtima, majelis ilmu, dan berbagai kegiatan sosial keumatan, PCNU berkomitmen menjaga tradisi Ahlussunnah wal Jamaah serta memperkuat peran Nahdlatul Ulama dalam kehidupan masyarakat.
       </p>
       <p class="text-gray-700 leading-relaxed mb-6">
-       Sejak berdiri, PCNU Kotabaru telah menjadi pusat kegiatan
-       keagamaan dan sosial yang melibatkan berbagai elemen masyarakat,
-       ulama, dan pemuda untuk membangun masyarakat yang harmonis,
-       toleran, dan berdaya saing. Kami percaya bahwa pendidikan dan
-       dakwah yang moderat adalah kunci untuk menciptakan kedamaian dan
-       kemajuan di daerah kami.
+        Kegiatan-kegiatan tersebut tidak hanya mempererat ukhuwah Islamiyah, tetapi juga menjadi sarana untuk memperluas jangkauan dakwah dan meningkatkan kepedulian sosial. Program pemberdayaan yang dijalankan turut menyentuh berbagai aspek kehidupan umat, mulai dari ekonomi, pendidikan, hingga bantuan kemanusiaan.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Dukungan penuh dari pengurus, badan otonom (banom), dan warga Nahdliyin menjadi kekuatan utama dalam menggerakkan roda organisasi. Sinergi antar elemen inilah yang menjadikan PCNU Kotabaru konsisten dalam menjawab tantangan zaman tanpa meninggalkan nilai-nilai tradisi dan keulamaan.
       </p>
       <p class="text-gray-700 leading-relaxed">
-       PCNU Kotabaru juga aktif dalam berbagai kegiatan sosial seperti
-       santunan anak yatim, bantuan bencana, dan pengembangan ekonomi
-       umat. Melalui sinergi dengan pemerintah daerah dan lembaga lain,
-       kami berupaya memberikan kontribusi nyata bagi pembangunan sosial
-       dan keagamaan di Kotabaru.
+        Dengan semangat khidmat dan kolaborasi, PCNU Kotabaru terus tumbuh sebagai wadah strategis untuk penguatan kelembagaan, pemberdayaan umat, dan pembangunan masyarakat yang berkelanjutan—berakar pada nilai-nilai Islam rahmatan lil 'alamin.
       </p>
      </div>
      <div>
@@ -239,7 +249,7 @@
      class="max-w-5xl mx-auto grid gap-12 md:grid-cols-2"
     >
      <div
-      class="bg-green-50 rounded shadow-md p-6 flex flex-col items-center text-center border-4 border-green-700"
+      class="bg-green-50 rounded shadow-md p-6 flex flex-col items-center text-center border-4 border-green-700 pengurus-card"
      >
       <img
        alt="Foto Rais PCNU Kotabaru, pria paruh baya mengenakan peci hitam dan baju koko putih"
@@ -254,7 +264,7 @@
       <p class="text-gray-700">KH. Muchtashor, S.Ag</p>
      </div>
      <div
-      class="bg-green-50 rounded shadow-md p-6 flex flex-col items-center text-center border-4 border-green-700"
+      class="bg-green-50 rounded shadow-md p-6 flex flex-col items-center text-center border-4 border-green-700 pengurus-card"
      >
       <img
        alt="Foto Khatib PCNU Kotabaru, pria mengenakan sorban putih dan jubah hijau"
@@ -269,7 +279,7 @@
       <p class="text-gray-700">Drs. H. Umar Dani, MM.</p>
      </div>
      <div
-      class="bg-green-50 rounded shadow-md p-6 flex flex-col items-center text-center border-4 border-green-700"
+      class="bg-green-50 rounded shadow-md p-6 flex flex-col items-center text-center border-4 border-green-700 pengurus-card"
      >
       <img
        alt="Foto Ketua PCNU Kotabaru, pria mengenakan jas hitam dan peci"
@@ -284,7 +294,7 @@
       <p class="text-gray-700">Dr. H. Nur Zazin, M.A</p>
      </div>
      <div
-      class="bg-green-50 rounded shadow-md p-6 flex flex-col items-center text-center border-4 border-green-700"
+      class="bg-green-50 rounded shadow-md p-6 flex flex-col items-center text-center border-4 border-green-700 pengurus-card"
      >
       <img
        alt="Foto Sekretaris PCNU Kotabaru, wanita mengenakan hijab hijau dan kacamata"
@@ -302,7 +312,7 @@
     <div class="text-center mt-12">
      <button
       id="open-pengurus-btn"
-      class="inline-flex items-center px-6 py-3 bg-green-700 hover:bg-green-800 text-white font-semibold rounded-md shadow-md transition focus:outline-none focus:ring-2 focus:ring-green-600"
+      class="inline-flex items-center px-6 py-3 bg-green-700 hover:bg-green-800 text-white font-semibold rounded-md shadow-md transition focus:outline-none focus:ring-2 focus:ring-green-600 hover-button"
       type="button"
      >
       <i class="fas fa-users mr-2"></i> Seluruh Pengurus
@@ -371,16 +381,16 @@
         <div>
           <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
           <div style="display: flex; gap: 1rem;">
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-youtube"></i>
             </a>
           </div>

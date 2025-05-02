@@ -16,6 +16,28 @@
    body {
     font-family: "Roboto", sans-serif;
    }
+   /* Hover effects */
+   .gallery-item {
+     transition: all 0.3s ease;
+   }
+   .gallery-item:hover {
+     transform: scale(1.05);
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+   }
+   .hover-button {
+     transition: all 0.3s ease;
+   }
+   .hover-button:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+   .social-icon {
+     transition: all 0.3s ease;
+   }
+   .social-icon:hover {
+     transform: translateY(-3px);
+     color: #4ade80 !important;
+   }
   </style>
  </head>
  <body class="bg-gray-50 text-gray-800">
@@ -150,7 +172,7 @@
     <div class="pagination flex justify-center items-center mt-12 space-x-3">
       <button
         id="prev-btn"
-        class="page-button bg-green-700 text-white px-4 py-2 rounded-md shadow hover:bg-green-800 disabled:bg-green-300 disabled:cursor-not-allowed"
+        class="page-button bg-green-700 text-white px-4 py-2 rounded-md shadow hover:bg-green-800 disabled:bg-green-300 disabled:cursor-not-allowed hover-button"
         type="button"
         aria-label="Halaman sebelumnya"
       >
@@ -159,7 +181,7 @@
       <div id="page-info" class="page-info text-green-800 font-semibold"></div>
       <button
         id="next-btn"
-        class="page-button bg-green-700 text-white px-4 py-2 rounded-md shadow hover:bg-green-800 disabled:bg-green-300 disabled:cursor-not-allowed"
+        class="page-button bg-green-700 text-white px-4 py-2 rounded-md shadow hover:bg-green-800 disabled:bg-green-300 disabled:cursor-not-allowed hover-button"
         type="button"
         aria-label="Halaman berikutnya"
       >
@@ -214,16 +236,16 @@
         <div>
           <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
           <div style="display: flex; gap: 1rem;">
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-youtube"></i>
             </a>
           </div>

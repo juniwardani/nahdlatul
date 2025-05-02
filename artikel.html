@@ -64,6 +64,28 @@
       display: block;
       margin: 0.5rem 0;
     }
+    /* Hover effects */
+    .article-card {
+      transition: all 0.3s ease;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .hover-button {
+      transition: all 0.3s ease;
+    }
+    .hover-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover {
+      transform: translateY(-3px);
+      color: #4ade80 !important;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&family=Amiri&family=Lateef&display=swap" rel="stylesheet" />
  </head>
@@ -268,16 +290,16 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
         <div>
           <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
           <div style="display: flex; gap: 1rem;">
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-youtube"></i>
             </a>
           </div>
@@ -362,7 +384,7 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
 
       pageItems.forEach((item, index) => {
         const article = document.createElement("article");
-        article.className = "bg-green-50 rounded-lg shadow-md p-6";
+        article.className = "bg-green-50 rounded-lg shadow-md p-6 article-card";
 
         // Strip HTML tags for preview text, then truncate
         const tempDiv = document.createElement("div");
@@ -381,7 +403,7 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
           </div>
           <div class="text-gray-700 text-justify mb-4">${textContent}</div>
           <button
-            class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition font-semibold"
+            class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition font-semibold hover-button"
             data-article-index="${start + index}"
             aria-label="Baca selengkapnya artikel ${item.judul}"
           >

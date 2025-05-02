@@ -16,6 +16,35 @@
    body {
     font-family: "Roboto", sans-serif;
    }
+   /* Hover effects */
+   .contact-card {
+     transition: all 0.3s ease;
+   }
+   .contact-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+   }
+   .hover-button {
+     transition: all 0.3s ease;
+   }
+   .hover-button:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+   .social-icon {
+     transition: all 0.3s ease;
+   }
+   .social-icon:hover {
+     transform: translateY(-3px);
+     color: #4ade80 !important;
+   }
+   .form-input {
+     transition: all 0.3s ease;
+   }
+   .form-input:focus {
+     transform: translateY(-2px);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
   </style>
  </head>
  <body class="bg-gray-50 text-gray-800">
@@ -146,7 +175,7 @@
      <div class="space-y-6 text-gray-700">
       <div class="flex items-start space-x-4">
        <i class="fas fa-map-marker-alt text-green-700 text-2xl mt-1"></i>
-       <a href="https://goo.gl/maps/YZXZq9Z9Z9Z9Z9Z9A" target="_blank" class="hover:text-green-700">
+       <a href="https://maps.app.goo.gl/2mqMSeVTMgCCGwiL9" target="_blank" class="hover:text-green-700">
          <p>Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru</p>
        </a>
       </div>
@@ -248,13 +277,13 @@
       <form
        action="#"
        aria-label="Form kontak PCNU Kotabaru"
-       class="bg-green-50 rounded-lg shadow-md p-8"
+       class="bg-green-50 rounded-lg shadow-md p-8 contact-card"
        method="POST"
       >
        <div class="mb-6">
         <label class="block mb-2 font-semibold text-green-700" for="name">Nama Lengkap</label>
         <input
-         class="w-full border border-green-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
+         class="w-full border border-green-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-700 form-input"
          id="name"
          name="name"
          placeholder="Masukkan nama lengkap Anda"
@@ -285,7 +314,7 @@
         ></textarea>
        </div>
        <button
-        class="w-full bg-green-700 text-white font-semibold py-3 rounded-md hover:bg-green-800 transition"
+        class="w-full bg-green-700 text-white font-semibold py-3 rounded-md hover:bg-green-800 transition hover-button"
         type="submit"
        >
         Kirim Pesan
@@ -317,16 +346,16 @@
         <div>
           <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
           <div style="display: flex; gap: 1rem;">
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
               <i class="fab fa-youtube"></i>
             </a>
           </div>
