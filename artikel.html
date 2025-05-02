@@ -1,0 +1,529 @@
+<html lang="id" class="scroll-smooth">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Artikel - PCNU Kotabaru</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+    /* Modal animation */
+    .modal-enter {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    .modal-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 300ms ease, transform 300ms ease;
+    }
+    .modal-exit {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .modal-exit-active {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 300ms ease, transform 300ms ease;
+    }
+    /* Arabic text styling */
+    .arabic-text {
+      font-family: "Scheherazade New", "Amiri", "Lateef", serif;
+      direction: rtl;
+      unicode-bidi: embed;
+      font-size: 1.5rem;
+      line-height: 2;
+      margin: 1rem 0;
+      text-align: center;
+    }
+    /* Justify modal content */
+    #modal-content {
+      text-align: justify;
+    }
+    #modal-content p {
+      margin-bottom: 1rem;
+    }
+    #modal-content em {
+      font-style: italic;
+      color: #065f46;
+    }
+    #modal-content strong {
+      font-weight: 700;
+      color: #065f46;
+    }
+    #modal-content br {
+      display: block;
+      margin: 0.5rem 0;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&family=Amiri&family=Lateef&display=swap" rel="stylesheet" />
+ </head>
+ <body class="bg-gray-50 text-gray-800">
+  <header class="bg-green-800 text-green-100 shadow-md fixed w-full z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center h-16">
+      <a class="flex items-center space-x-3" href="index.html">
+        <img
+        alt="Logo PCNU Kotabaru, green and gold emblem with Islamic calligraphy" 
+        class="h-16 w-16 object-contain"
+        height="64"
+        src="img/logo.jpg"
+        width="64"
+       />
+       <span class="text-2xl font-bold text-green-100">PCNU Kotabaru</span>
+      </a>
+      <nav class="hidden md:flex space-x-8 font-semibold text-green-100">
+       <a 
+         class="hover:text-green-300 transition" 
+         href="index.html"
+       >
+         Beranda
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="tentang.html"
+       >
+         Tentang Kami
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="program.html"
+       >
+         Program
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="berita.html"
+       >
+         Berita
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="artikel.html"
+       >
+         Artikel
+       </a>
+       <a 
+       aria-current="page"
+         class="hover:text-green-300 transition"
+       href="galeri.html"
+     >
+       Galeri
+     </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="kontak.html"
+       >
+         Kontak
+       </a>
+      </nav>
+      <button
+       aria-label="Toggle menu"
+       class="md:hidden focus:outline-none focus:ring-2 focus:ring-green-300"
+       id="menu-btn"
+      >
+       <i class="fas fa-bars text-2xl text-green-100"></i>
+      </button>
+     </div>
+    </div>
+    <nav
+     aria-label="Mobile menu"
+     class="md:hidden bg-green-800 border-t border-green-700 hidden"
+     id="mobile-menu"
+    >
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="index.html"
+     >
+      Beranda
+     </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="tentang.html"
+     >
+      Tentang Kami
+     </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="program.html"
+     >
+      Program
+     </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="berita.html"
+     >
+      Berita
+     </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="artikel.html"
+     >
+      Artikel
+     </a>
+     <a
+class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+     href="galeri.html"
+    >
+     Galeri
+    </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="kontak.html"
+     >
+      Kontak
+     </a>
+ 
+    </nav>
+   </header>
+  <script>
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
+  <main
+    class="pt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white min-h-screen"
+  >
+   <h1 class="text-4xl font-bold text-green-800 mb-12 text-center">Artikel PCNU Kotabaru</h1>
+   
+   <!-- Filter Kategori -->
+   <div class="grid grid-cols-4 gap-2 max-w-2xl mx-auto mb-8">
+     <button class="filter-btn active px-2 py-1.5 rounded-full bg-green-700 text-white hover:bg-green-800 transition text-sm" data-category="all">
+       Semua
+     </button>
+     <button class="filter-btn px-2 py-1.5 rounded-full bg-green-100 text-green-700 hover:bg-green-200 transition text-sm" data-category="Fiqih">
+       Fiqih
+     </button>
+     <button class="filter-btn px-2 py-1.5 rounded-full bg-green-100 text-green-700 hover:bg-green-200 transition text-sm" data-category="Aqidah">
+       Aqidah
+     </button>
+     <button class="filter-btn px-2 py-1.5 rounded-full bg-green-100 text-green-700 hover:bg-green-200 transition text-sm" data-category="Tasawuf">
+       Tasawuf
+     </button>
+   </div>
+
+   <div id="articles-container" class="space-y-10"></div>
+   <nav
+     aria-label="Pagination"
+     class="mt-12 flex justify-center space-x-3"
+     id="pagination"
+   ></nav>
+  </main>
+
+  <!-- Modal -->
+  <div
+    id="modal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+   <div
+     class="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-lg relative p-6"
+   >
+    <button
+      id="modal-close"
+      aria-label="Tutup modal"
+      class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 focus:outline-none"
+    >
+     <i class="fas fa-times text-2xl"></i>
+    </button>
+    <h2 id="modal-title" class="text-3xl font-bold text-green-800 mb-4"></h2>
+    <div class="mb-2 text-sm text-green-700 font-semibold" id="modal-meta"></div>
+    <div id="modal-content" class="text-gray-700 whitespace-pre-wrap"></div>
+   </div>
+  </div>
+
+  <footer class="bg-green-800 text-green-100 py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">PCNU Kotabaru</h3>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-map-marker-alt"></i>
+            Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-envelope"></i>
+            Email: kotabaru@nu.or.id
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-phone"></i>
+            Telp: (+62) 812-5656-8899, (+62) 821-5175-8303
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
+          <div style="display: flex; gap: 1rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 pt-4 border-t border-green-700 text-center">
+        <p>&copy; 2024 PCNU Kotabaru. Semua hak cipta dilindungi undang-undang.</p>
+      </div>
+    </div>
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Inisialisasi Supabase client
+        const supabaseUrl = 'https://iwnwqcxigtywetgcmlou.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3bndxY3hpZ3R5d2V0Z2NtbG91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU4MjQ4MTUsImV4cCI6MjA1MTQwMDgxNX0.fjdJlTVav4Gm8ku9rBmRuLoae5ViFxas7Uu069ItfnY'
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
+
+    const articlesContainer = document.getElementById("articles-container");
+    const paginationContainer = document.getElementById("pagination");
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalMeta = document.getElementById("modal-meta");
+    const modalContent = document.getElementById("modal-content");
+    const modalCloseBtn = document.getElementById("modal-close");
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    const itemsPerPage = 5;
+    let currentPage = 1;
+    let currentCategory = 'all';
+    let articlesData = [];
+    let totalPages = 0;
+
+    function formatDate(dateStr) {
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      const date = new Date(dateStr);
+      return date.toLocaleDateString("id-ID", options);
+    }
+
+    async function fetchArticles(category = 'all') {
+      try {
+        let query = supabase
+          .from('dakwah')
+          .select('*')
+          .order('tanggal', { ascending: false });
+
+        if (category !== 'all') {
+          query = query.eq('kategori', category);
+        }
+
+        const { data, error } = await query;
+
+        if (error) throw error;
+
+        articlesData = data;
+        totalPages = Math.ceil(articlesData.length / itemsPerPage);
+        currentPage = 1;
+        updatePage();
+      } catch (error) {
+        console.error('Error:', error);
+        articlesContainer.innerHTML = `
+          <div class="text-center text-red-600">
+            Terjadi kesalahan saat mengambil data artikel.
+          </div>
+        `;
+      }
+    }
+
+    function renderArticlesPage(page) {
+      articlesContainer.innerHTML = "";
+      const start = (page - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      const pageItems = articlesData.slice(start, end);
+
+      if (pageItems.length === 0) {
+        articlesContainer.innerHTML = `
+          <div class="text-center text-gray-600">
+            Tidak ada artikel yang ditemukan.
+          </div>
+        `;
+        return;
+      }
+
+      pageItems.forEach((item, index) => {
+        const article = document.createElement("article");
+        article.className = "bg-green-50 rounded-lg shadow-md p-6";
+
+        // Strip HTML tags for preview text, then truncate
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = item.konten;
+        let textContent = tempDiv.textContent || tempDiv.innerText || "";
+        if (textContent.length > 250) {
+          textContent = textContent.slice(0, 250) + "...";
+        }
+
+        article.innerHTML = `
+          <h2 class="text-2xl font-semibold text-green-700 mb-2">${item.judul}</h2>
+          <div class="mb-2 flex flex-wrap gap-4 text-sm text-green-800 font-semibold">
+            <span class="bg-green-200 rounded-full px-3 py-1">${item.kategori}</span>
+            <span>Penulis: ${item.penulis}</span>
+            <span>Tanggal: ${formatDate(item.tanggal)}</span>
+          </div>
+          <div class="text-gray-700 text-justify mb-4">${textContent}</div>
+          <button
+            class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition font-semibold"
+            data-article-index="${start + index}"
+            aria-label="Baca selengkapnya artikel ${item.judul}"
+          >
+            Baca Selengkapnya
+          </button>
+        `;
+        articlesContainer.appendChild(article);
+      });
+    }
+
+    function renderPagination() {
+      paginationContainer.innerHTML = "";
+
+      if (totalPages <= 1) return;
+
+      // Previous button
+      const prevBtn = document.createElement("button");
+      prevBtn.textContent = "‹";
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.className =
+        "px-3 py-1 rounded-md font-semibold " +
+        (prevBtn.disabled
+          ? "bg-green-300 text-green-100 cursor-not-allowed"
+          : "bg-green-700 text-green-100 hover:bg-green-800");
+      prevBtn.addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage--;
+          updatePage();
+        }
+      });
+      paginationContainer.appendChild(prevBtn);
+
+      // Page numbers
+      for (let i = 1; i <= totalPages; i++) {
+        const pageBtn = document.createElement("button");
+        pageBtn.textContent = i;
+        pageBtn.className =
+          "px-3 py-1 rounded-md font-semibold " +
+          (i === currentPage
+            ? "bg-green-700 text-green-100 cursor-default"
+            : "bg-green-100 text-green-700 hover:bg-green-200");
+        if (i !== currentPage) {
+          pageBtn.addEventListener("click", () => {
+            currentPage = i;
+            updatePage();
+          });
+        }
+        paginationContainer.appendChild(pageBtn);
+      }
+
+      // Next button
+      const nextBtn = document.createElement("button");
+      nextBtn.textContent = "›";
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.className =
+        "px-3 py-1 rounded-md font-semibold " +
+        (nextBtn.disabled
+          ? "bg-green-300 text-green-100 cursor-not-allowed"
+          : "bg-green-700 text-green-100 hover:bg-green-800");
+      nextBtn.addEventListener("click", () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          updatePage();
+        }
+      });
+      paginationContainer.appendChild(nextBtn);
+    }
+
+    function updatePage() {
+      renderArticlesPage(currentPage);
+      renderPagination();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      attachReadMoreListeners();
+    }
+
+    function attachReadMoreListeners() {
+      const buttons = articlesContainer.querySelectorAll("button[data-article-index]");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const index = parseInt(btn.getAttribute("data-article-index"));
+          openModal(index);
+        });
+      });
+    }
+
+    function openModal(index) {
+      const article = articlesData[index];
+      modalTitle.textContent = article.judul;
+      modalMeta.textContent = `Kategori: ${article.kategori} | Penulis: ${article.penulis} | Tanggal: ${formatDate(article.tanggal)}`;
+      
+      // Proses konten untuk memastikan teks Arab ditampilkan dengan benar
+      let processedContent = article.konten;
+      
+      // Tambahkan class arabic-text ke elemen yang berisi teks Arab
+      processedContent = processedContent.replace(
+        /<p class="arabic-text">(.*?)<\/p>/g,
+        '<p class="arabic-text">$1</p>'
+      );
+      
+      modalContent.innerHTML = processedContent;
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    // Event Listeners
+    modalCloseBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+
+    // Filter button event listeners
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active state
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-green-700', 'text-white');
+          btn.classList.add('bg-green-100', 'text-green-700');
+        });
+        button.classList.add('active', 'bg-green-700', 'text-white');
+        button.classList.remove('bg-green-100', 'text-green-700');
+
+        // Update category and fetch articles
+        currentCategory = button.dataset.category;
+        fetchArticles(currentCategory);
+      });
+    });
+
+    // Initial load
+    fetchArticles();
+  </script>
+ </body>
+</html>
