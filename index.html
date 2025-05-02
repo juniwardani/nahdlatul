@@ -473,7 +473,7 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
        }
    });
 
-   // Data arrays for programs and news
+   // Data arrays for programs
    const programs = [
     {
      title: "LAZISNU",
@@ -498,33 +498,6 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
      image:
       "https://storage.googleapis.com/a1aa/image/cfa5b4d2-4bd8-4dc7-8b7a-a0b66b412fb8.jpg",
      alt: "Islamic study session with religious scholars and community members",
-    },
-   ];
-
-   const news = [
-    {
-     title: "PCNU Kotabaru Gelar Pengajian Akbar",
-     description:
-      "Pengajian akbar dihadiri ratusan jamaah untuk memperkuat ukhuwah dan keilmuan.",
-     image:
-      "https://storage.googleapis.com/a1aa/image/3d48b8ac-151a-40d4-beb0-8115e273821e.jpg",
-     alt: "PCNU Kotabaru members attending a community event with banners and green decorations",
-    },
-    {
-     title: "Bantuan Sosial untuk Korban Banjir",
-     description:
-      "LAZISNU menyalurkan bantuan sosial kepada masyarakat terdampak banjir di Kotabaru.",
-     image:
-      "https://storage.googleapis.com/a1aa/image/c111741b-a740-4ae0-7c9e-c77ca8b897b0.jpg",
-     alt: "Volunteers distributing food packages to flood victims in Kotabaru",
-    },
-    {
-     title: "Diklat Guru Mengaji Sukses Digelar",
-     description:
-      "Pelatihan guru mengaji dengan metode efektif dan sertifikasi kompetensi.",
-     image:
-      "https://storage.googleapis.com/a1aa/image/8bca0f66-7a5a-4934-98be-0ba20efc8f2d.jpg",
-     alt: "Training session for guru mengaji with participants practicing Quran reading",
     },
    ];
 
@@ -565,43 +538,77 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
    }
 
    // Function to render news
-   function renderNews() {
+   async function renderNews() {
     const container = document.getElementById("news-list");
     container.innerHTML = "";
-    news.forEach((item) => {
-     const article = document.createElement("article");
-     article.setAttribute(
-      "class",
-      "bg-white border border-green-300 rounded-lg shadow-md overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400"
-     );
-     article.setAttribute("tabindex", "0");
 
-     const img = document.createElement("img");
-     img.src = item.image;
-     img.alt = item.alt;
-     img.className = "w-full h-40 object-cover";
-     img.height = 250;
-     img.width = 400;
+    try {
+      const { data, error } = await supabase
+        .from('berita')
+        .select('*')
+        .order('tanggal', { ascending: false })
+        .limit(3);
 
-     const div = document.createElement("div");
-     div.className = "p-5";
+      if (error) throw error;
 
-     const h3 = document.createElement("h3");
-     h3.className = "font-semibold text-green-700 mb-2 text-lg";
-     h3.textContent = item.title;
+      if (data.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-3 text-center text-gray-600">
+            Tidak ada berita yang tersedia.
+          </div>
+        `;
+        return;
+      }
 
-     const p = document.createElement("p");
-     p.className = "text-gray-700 text-sm";
-     p.textContent = item.description;
+      data.forEach((item) => {
+        const article = document.createElement("article");
+        article.setAttribute(
+          "class",
+          "bg-white border border-green-300 rounded-lg shadow-md overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400"
+        );
+        article.setAttribute("tabindex", "0");
 
-     div.appendChild(h3);
-     div.appendChild(p);
+        const img = document.createElement("img");
+        img.src = item.gambar_url || "img/logo.jpg";
+        img.alt = item.judul;
+        img.className = "w-full h-40 object-cover";
+        img.height = 250;
+        img.width = 400;
 
-     article.appendChild(img);
-     article.appendChild(div);
+        const div = document.createElement("div");
+        div.className = "p-5";
 
-     container.appendChild(article);
-    });
+        const h3 = document.createElement("h3");
+        h3.className = "font-semibold text-green-700 mb-2 text-lg";
+        h3.textContent = item.judul;
+
+        const p = document.createElement("p");
+        p.className = "text-gray-700 text-sm";
+        // Strip HTML tags and limit text length
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = item.konten;
+        let textContent = tempDiv.textContent || tempDiv.innerText || "";
+        if (textContent.length > 100) {
+          textContent = textContent.slice(0, 100) + "...";
+        }
+        p.textContent = textContent;
+
+        div.appendChild(h3);
+        div.appendChild(p);
+
+        article.appendChild(img);
+        article.appendChild(div);
+
+        container.appendChild(article);
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      container.innerHTML = `
+        <div class="col-span-3 text-center text-red-600">
+          Terjadi kesalahan saat mengambil data berita.
+        </div>
+      `;
+    }
    }
 
    // Render on DOMContentLoaded
