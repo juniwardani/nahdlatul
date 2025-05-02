@@ -1,120 +1,370 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program - PCNU Kotabaru</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="img/logo.jpg" alt="Logo NU">
-                <h1>PCNU Kotabaru</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="profil.html">Profil</a></li>
-                <li><a href="berita.html">Berita</a></li>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="galeri.html">Galeri</a></li>
-                <li><a href="dakwah.html">Dakwah</a></li>
-                <li><a href="kontak.html">Kontak</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+<html lang="id" class="scroll-smooth">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Program - PCNU Kotabaru</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+   href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+   rel="stylesheet"
+  />
+  <link
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+   rel="stylesheet"
+  />
+  <style>
+   body {
+    font-family: "Roboto", sans-serif;
+   }
+  </style>
+ </head>
+ <body class="bg-gray-50 text-gray-800">
+    <header class="bg-green-800 text-green-100 shadow-md fixed w-full z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div class="flex justify-between items-center h-16">
+          <a class="flex items-center space-x-3" href="index.html">
+      <img
+       alt="Logo PCNU Kotabaru, green and gold emblem with Islamic calligraphy" 
+       class="h-16 w-16 object-contain"
+       height="64"
+       src="img/logo.jpg"
+       width="64"
+      />
+           <span class="text-2xl font-bold text-green-100">PCNU Kotabaru</span>
+          </a>
+          <nav class="hidden md:flex space-x-8 font-semibold text-green-100">
+           <a 
+             class="hover:text-green-300 transition" 
+             href="index.html"
+           >
+             Beranda
+           </a>
+           <a 
+             class="hover:text-green-300 transition" 
+             href="tentang.html"
+           >
+             Tentang Kami
+           </a>
+           <a 
+             class="hover:text-green-300 transition" 
+             href="program.html"
+           >
+             Program
+           </a>
+           <a 
+             class="hover:text-green-300 transition" 
+             href="berita.html"
+           >
+             Berita
+           </a>
+           <a 
+             class="hover:text-green-300 transition" 
+             href="artikel.html"
+           >
+             Artikel
+           </a>
+           <a 
+           aria-current="page"
+             class="hover:text-green-300 transition"
+           href="galeri.html"
+         >
+           Galeri
+         </a>
+           <a 
+             class="hover:text-green-300 transition" 
+             href="kontak.html"
+           >
+             Kontak
+           </a>
+          </nav>
+          <button
+           aria-label="Toggle menu"
+           class="md:hidden focus:outline-none focus:ring-2 focus:ring-green-300"
+           id="menu-btn"
+          >
+           <i class="fas fa-bars text-2xl text-green-100"></i>
+          </button>
+         </div>
+        </div>
+        <nav
+         aria-label="Mobile menu"
+         class="md:hidden bg-green-800 border-t border-green-700 hidden"
+         id="mobile-menu"
+        >
+         <a
+          class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+          href="index.html"
+         >
+          Beranda
+         </a>
+         <a
+          class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+          href="tentang.html"
+         >
+          Tentang Kami
+         </a>
+         <a
+          class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+          href="program.html"
+         >
+          Program
+         </a>
+         <a
+          class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+          href="berita.html"
+         >
+          Berita
+         </a>
+         <a
+          class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+          href="artikel.html"
+         >
+          Artikel
+         </a>
+         <a
+    class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+         href="galeri.html"
+        >
+         Galeri
+        </a>
+         <a
+          class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+          href="kontak.html"
+         >
+          Kontak
+         </a>
+     
         </nav>
-    </header>
+       </header>
 
-    <main class="page-content">
-        <section class="program-section">
-            <h1>Program PCNU Kotabaru</h1>
+  <script>
+   const btn = document.getElementById("menu-btn");
+   const menu = document.getElementById("mobile-menu");
 
-            <div class="program-kategori">
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-book-quran"></i>
-                    </div>
-                    <h2>Program Keagamaan</h2>
-                    <ul>
-                        <li>Pengajian Rutin Bulanan</li>
-                        <li>Pelatihan Khotib dan Da'i</li>
-                        <li>Pembinaan Majelis Taklim</li>
-                        <li>Pengajian Syarah Al Hikam dan Aqidatul Awam</li>
-                    </ul>
-                </div>
+   if (btn && menu) {
+    btn.addEventListener("click", () => {
+     menu.classList.toggle("hidden");
+    });
+   }
+  </script>
 
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h2>Program Pendidikan</h2>
-                    <ul>
-                        <li>Beasiswa Santri Berprestasi</li>
-                        <li>Diklat Standarisasi Guru TPQ</li>
-                        <li>Pembinaan Madrasah Diniyah</li>
-                        <li>Pembinaan Standarisasi Imam dan Khotib</li>
-                    </ul>
-                </div>
+  <main
+   class="pt-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white min-h-screen space-y-20"
+  >
+   <h1
+    class="text-5xl font-extrabold text-green-800 mb-12 text-center tracking-wide"
+   >
+    Program PCNU Kotabaru
+   </h1>
 
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h2>Program Sosial</h2>
-                    <ul>
-                        <li>Santunan Anak Yatim</li>
-                        <li>Bantuan Sembako Dhuafa</li>
-                        <li>Simpanan TAAT (Tabungan Akhirat)</li>
-                        <li>Program Pemberdayaan Ekonomi</li>
-                    </ul>
-                </div>
+   <section
+    tabindex="0"
+    class="bg-green-50 border border-green-300 rounded-lg p-8 shadow-md cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400 max-w-4xl mx-auto"
+    aria-label="Program LAZISNU"
+   >
+    <h2
+     class="text-3xl font-extrabold text-green-700 mb-4 border-b-4 border-green-700 inline-block tracking-wide"
+    >
+     LAZISNU
+    </h2>
+    <p class="text-gray-700 text-justify leading-relaxed mb-6 text-lg">
+     LAZISNU (Lembaga Amil Zakat, Infaq, dan Shadaqah Nahdlatul Ulama) adalah
+     lembaga pengelola dana zakat, infak, dan sedekah yang dikelola secara
+     transparan dan akuntabel. Program-program LAZISNU bertujuan untuk
+     memberdayakan masyarakat kurang mampu dan mendukung kegiatan dakwah serta
+     pendidikan Islam di Kotabaru.
+    </p>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 list-disc list-inside text-gray-700">
+     <li>Pengelolaan dana zakat, infak, dan sedekah secara transparan dan akuntabel.</li>
+     <li>Program bantuan sosial untuk masyarakat kurang mampu dan terdampak bencana.</li>
+     <li>Pemberdayaan ekonomi umat melalui pelatihan dan pendampingan usaha mikro.</li>
+     <li>Penggalangan dana untuk kegiatan dakwah dan pendidikan Islam.</li>
+    </ul>
+   </section>
 
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h2>Program Kepemudaan</h2>
-                    <ul>
-                        <li>Pelatihan Kewirausahaan</li>
-                        <li>Forum Diskusi Pemuda NU</li>
-                        <li>Pembinaan IPNU-IPPNU</li>
-                        <li>Kegiatan Olahraga dan Seni</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
+   <section
+    tabindex="0"
+    class="bg-green-50 border border-green-300 rounded-lg p-8 shadow-md cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400 max-w-4xl mx-auto"
+    aria-label="Program Simpanan TAAT"
+   >
+    <h2
+     class="text-3xl font-extrabold text-green-700 mb-4 border-b-4 border-green-700 inline-block tracking-wide"
+    >
+     Simpanan TAAT
+    </h2>
+    <p class="text-gray-700 text-justify leading-relaxed mb-6 text-lg">
+     Simpanan TAAT adalah program <strong>TAbungan akhiAT</strong> yang
+     dirancang untuk membantu anggota PCNU Kotabaru mengelola keuangan secara
+     produktif dan aman. Program ini memberikan kemudahan akses pinjaman dan
+     meningkatkan literasi keuangan keluarga.
+    </p>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 list-disc list-inside text-gray-700">
+     <li>Program simpanan anggota dengan sistem yang mudah dan terpercaya.</li>
+     <li>Memberikan kemudahan akses pinjaman untuk kebutuhan produktif dan sosial.</li>
+     <li>Peningkatan literasi keuangan dan manajemen keuangan keluarga.</li>
+     <li>Pengelolaan dana simpanan yang transparan dan aman.</li>
+    </ul>
+   </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>PCNU Kotabaru</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru</p>
-                <p><i class="fas fa-envelope"></i> Email: kotabaru@nu.or.id</p>
-                <p><i class="fas fa-phone"></i> Telp: (+62) 812-5656-8899, (+62) 821-5175-8303</p>
-            </div>
+   <section
+    tabindex="0"
+    class="bg-green-50 border border-green-300 rounded-lg p-8 shadow-md cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400 max-w-4xl mx-auto"
+    aria-label="Program Pengajian Nazhom Aqidatul Awam"
+   >
+    <h2
+     class="text-3xl font-extrabold text-green-700 mb-4 border-b-4 border-green-700 inline-block tracking-wide"
+    >
+     Pengajian Nazhom Aqidatul Awam
+    </h2>
+    <p class="text-gray-700 text-justify leading-relaxed mb-6 text-lg">
+     Pengajian Nazhom Aqidatul Awam merupakan kegiatan rutin untuk
+     memahami kitab Nazhom Aqidatul Awam secara mendalam. Program ini
+     bertujuan membina keilmuan dan meningkatkan pemahaman ajaran
+     Ahlussunnah wal Jamaah di kalangan masyarakat dan kader NU.
+    </p>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 list-disc list-inside text-gray-700">
+     <li>Pengajian rutin untuk memahami kitab Nazhom Aqidatul Awam secara mendalam.</li>
+     <li>Pembinaan keilmuan bagi masyarakat dan kader NU.</li>
+     <li>Diskusi dan tanya jawab seputar aqidah dan akhlak Islam.</li>
+     <li>Peningkatan pemahaman ajaran Ahlussunnah wal Jamaah.</li>
+    </ul>
+   </section>
 
-            <div class="footer-section">
-                <h3>Media Sosial</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+   <section
+    tabindex="0"
+    class="bg-green-50 border border-green-300 rounded-lg p-8 shadow-md cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400 max-w-4xl mx-auto"
+    aria-label="Program Diklat Standarisasi Guru Mengaji"
+   >
+    <h2
+     class="text-3xl font-extrabold text-green-700 mb-4 border-b-4 border-green-700 inline-block tracking-wide"
+    >
+     Diklat Standarisasi Guru Mengaji
+    </h2>
+    <p class="text-gray-700 text-justify leading-relaxed mb-6 text-lg">
+     Diklat ini bertujuan meningkatkan kompetensi guru mengaji di lingkungan
+     PCNU Kotabaru dengan metode pengajaran Al-Qur’an yang efektif dan
+     menarik. Peserta akan mendapatkan sertifikat sebagai tanda kompetensi.
+    </p>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 list-disc list-inside text-gray-700">
+     <li>Pelatihan peningkatan kompetensi guru mengaji di lingkungan PCNU Kotabaru.</li>
+     <li>Pembekalan metode pengajaran Al-Qur’an yang efektif dan menarik.</li>
+     <li>Pemberian sertifikat sebagai tanda kompetensi guru mengaji.</li>
+     <li>Pengembangan jaringan guru mengaji untuk saling berbagi pengalaman.</li>
+    </ul>
+   </section>
+
+   <section
+    tabindex="0"
+    class="bg-green-50 border border-green-300 rounded-lg p-8 shadow-md cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400 max-w-4xl mx-auto"
+    aria-label="Program Diklat Standarisasi Imam dan Khotib"
+   >
+    <h2
+     class="text-3xl font-extrabold text-green-700 mb-4 border-b-4 border-green-700 inline-block tracking-wide"
+    >
+     Diklat Standarisasi Imam dan Khotib
+    </h2>
+    <p class="text-gray-700 text-justify leading-relaxed mb-6 text-lg">
+     Program pelatihan ini meningkatkan kualitas imam dan khotib dalam
+     memimpin ibadah dan menyampaikan khutbah yang sesuai dengan ajaran
+     Ahlussunnah wal Jamaah serta memperkuat peran mereka dalam membina
+     jamaah masjid.
+    </p>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 list-disc list-inside text-gray-700">
+     <li>Pelatihan imam dan khotib untuk meningkatkan kualitas ibadah dan khutbah.</li>
+     <li>Pembekalan materi khutbah yang sesuai dengan ajaran Ahlussunnah wal Jamaah.</li>
+     <li>Peningkatan kemampuan komunikasi dan retorika dalam menyampaikan khutbah.</li>
+     <li>Penguatan peran imam dan khotib dalam membina jamaah masjid.</li>
+    </ul>
+   </section>
+
+   <section
+    tabindex="0"
+    class="bg-green-50 border border-green-300 rounded-lg p-8 shadow-md cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400 max-w-4xl mx-auto"
+    aria-label="Program Pelatihan Pemadian Jenazah"
+   >
+    <h2
+     class="text-3xl font-extrabold text-green-700 mb-4 border-b-4 border-green-700 inline-block tracking-wide"
+    >
+     Pelatihan Pemadian Jenazah
+    </h2>
+    <p class="text-gray-700 text-justify leading-relaxed mb-6 text-lg">
+     Pelatihan ini memberikan pembekalan teknis dan spiritual bagi petugas
+     pemakaman agar dapat melaksanakan tata cara pemakaman dan pemadian jenazah
+     sesuai syariat Islam dengan baik dan benar.
+    </p>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 list-disc list-inside text-gray-700">
+     <li>Tata cara pemakaman dan pemadian jenazah sesuai syariat Islam.</li>
+     <li>Pembekalan teknis dan spiritual bagi petugas pemakaman.</li>
+     <li>Peningkatan kesadaran masyarakat akan pentingnya pemakaman yang benar.</li>
+     <li>Kerjasama dengan lembaga terkait untuk pelayanan pemakaman.</li>
+    </ul>
+   </section>
+
+   <section
+    tabindex="0"
+    class="bg-green-50 border border-green-300 rounded-lg p-8 shadow-md cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-400 max-w-4xl mx-auto"
+    aria-label="Program Pengajian Syarah Al Hikam"
+   >
+    <h2
+     class="text-3xl font-extrabold text-green-700 mb-4 border-b-4 border-green-700 inline-block tracking-wide"
+    >
+     Pengajian Syarah Al Hikam
+    </h2>
+    <p class="text-gray-700 text-justify leading-relaxed mb-6 text-lg">
+     Pengajian rutin membahas kitab Syarah Al Hikam karya Ibnu Athaillah yang
+     bertujuan membina spiritual dan tasawuf bagi anggota dan masyarakat,
+     meningkatkan kualitas keimanan dan ketakwaan umat.
+    </p>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 list-disc list-inside text-gray-700">
+     <li>Pengajian rutin membahas kitab Syarah Al Hikam karya Ibnu Athaillah.</li>
+     <li>Pembinaan spiritual dan tasawuf bagi anggota dan masyarakat.</li>
+     <li>Diskusi dan refleksi nilai-nilai hikmah dalam kehidupan sehari-hari.</li>
+     <li>Peningkatan kualitas keimanan dan ketakwaan umat.</li>
+    </ul>
+   </section>
+  </main>
+
+  <footer class="bg-green-800 text-green-100 py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">PCNU Kotabaru</h3>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-map-marker-alt"></i>
+            Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-envelope"></i>
+            Email: kotabaru@nu.or.id
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-phone"></i>
+            Telp: (+62) 812-5656-8899, (+62) 821-5175-8303
+          </p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 PCNU Kotabaru. All rights reserved.</p>
-        </div>
-    </footer>
 
-    <script src="js/main.js"></script>
-</body>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
+          <div style="display: flex; gap: 1rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 pt-4 border-t border-green-700 text-center">
+        <p>&copy; 2024 PCNU Kotabaru. Semua hak cipta dilindungi undang-undang.</p>
+      </div>
+    </div>
+  </footer>
+ </body>
 </html>
