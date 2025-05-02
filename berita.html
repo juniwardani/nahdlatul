@@ -1,105 +1,559 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berita - PCNU Kotabaru</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="img/logo.jpg" alt="Logo NU">
-                <h1>PCNU Kotabaru</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="profil.html">Profil</a></li>
-                <li><a href="berita.html">Berita</a></li>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="galeri.html">Galeri</a></li>
-                <li><a href="dakwah.html">Dakwah</a></li>
-                <li><a href="kontak.html">Kontak</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<html lang="id" class="scroll-smooth">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Berita - PCNU Kotabaru</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+    /* Modal animation */
+    .modal-enter {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    .modal-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 300ms ease, transform 300ms ease;
+    }
+    .modal-exit {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .modal-exit-active {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 300ms ease, transform 300ms ease;
+    }
+    /* Arabic text styling */
+    .arabic-text {
+      font-family: "Scheherazade New", "Amiri", "Lateef", serif;
+      direction: rtl;
+      unicode-bidi: embed;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin: 0.75rem 0;
+    }
+    /* Justify modal content */
+    #modal-content {
+      text-align: justify;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&family=Amiri&family=Lateef&display=swap" rel="stylesheet" />
+ </head>
+ <body class="bg-gray-50 text-gray-800">
+  <header class="bg-green-800 text-green-100 shadow-md fixed w-full z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center h-16">
+      <a class="flex items-center space-x-3" href="index.html">
+        <img
+        alt="Logo PCNU Kotabaru, green and gold emblem with Islamic calligraphy" 
+        class="h-16 w-16 object-contain"
+        height="64"
+        src="img/logo.jpg"
+        width="64"
+       />
+       <span class="text-2xl font-bold text-green-100">PCNU Kotabaru</span>
+      </a>
+      <nav class="hidden md:flex space-x-8 font-semibold text-green-100">
+       <a 
+         class="hover:text-green-300 transition" 
+         href="index.html"
+       >
+         Beranda
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="tentang.html"
+       >
+         Tentang Kami
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="program.html"
+       >
+         Program
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="berita.html"
+       >
+         Berita
+       </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="artikel.html"
+       >
+         Artikel
+       </a>
+       <a 
+       aria-current="page"
+         class="hover:text-green-300 transition"
+       href="galeri.html"
+     >
+       Galeri
+     </a>
+       <a 
+         class="hover:text-green-300 transition" 
+         href="kontak.html"
+       >
+         Kontak
+       </a>
+      </nav>
+      <button
+       aria-label="Toggle menu"
+       class="md:hidden focus:outline-none focus:ring-2 focus:ring-green-300"
+       id="menu-btn"
+      >
+       <i class="fas fa-bars text-2xl text-green-100"></i>
+      </button>
+     </div>
+    </div>
+    <nav
+     aria-label="Mobile menu"
+     class="md:hidden bg-green-800 border-t border-green-700 hidden"
+     id="mobile-menu"
+    >
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="index.html"
+     >
+      Beranda
+     </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="tentang.html"
+     >
+      Tentang Kami
+     </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="program.html"
+     >
+      Program
+     </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="berita.html"
+     >
+      Berita
+     </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="artikel.html"
+     >
+      Artikel
+     </a>
+     <a
+class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+     href="galeri.html"
+    >
+     Galeri
+    </a>
+     <a
+      class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700"
+      href="kontak.html"
+     >
+      Kontak
+     </a>
+ 
+    </nav>
+   </header>
+  <script>
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
 
-    <main class="page-content">
-        <section class="berita-section">
-            <h1>Berita Terkini</h1>
-            
-            <div class="berita-grid">
-                <article class="berita-card">
-                    <img src="images/berita1.jpg" alt="Berita 1">
-                    <div class="berita-content">
-                        <span class="tanggal">15 Januari 2024</span>
-                        <h2>Pengajian Akbar PCNU Kotabaru</h2>
-                        <p>PCNU Kotabaru mengadakan pengajian akbar yang dihadiri ribuan jamaah. Acara ini merupakan bagian dari program penguatan nilai-nilai Ahlussunnah Wal Jamaah di kalangan masyarakat.</p>
-                        <a href="#" class="read-more">Baca Selengkapnya</a>
-                    </div>
-                </article>
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
+  <main
+    class="pt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white min-h-screen"
+  >
+   <h1 class="text-4xl font-bold text-green-800 mb-12 text-center">Berita PCNU Kotabaru</h1>
+   <div id="news-container" class="space-y-10"></div>
+   <nav
+     aria-label="Pagination"
+     class="mt-12 flex justify-center space-x-3"
+     id="pagination"
+   ></nav>
+  </main>
 
-                <article class="berita-card">
-                    <img src="images/berita2.jpg" alt="Berita 2">
-                    <div class="berita-content">
-                        <span class="tanggal">12 Januari 2024</span>
-                        <h2>Santunan Anak Yatim dan Dhuafa</h2>
-                        <p>Program rutin santunan anak yatim dan dhuafa yang diselenggarakan oleh PCNU Kotabaru sebagai bentuk kepedulian terhadap sesama.</p>
-                        <a href="#" class="read-more">Baca Selengkapnya</a>
-                    </div>
-                </article>
+  <!-- Modal -->
+  <div
+    id="modal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+   <div
+     class="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-lg relative p-6"
+   >
+    <button
+      id="modal-close"
+      aria-label="Tutup modal"
+      class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 focus:outline-none"
+    >
+     <i class="fas fa-times text-2xl"></i>
+    </button>
+    <h2 id="modal-title" class="text-3xl font-bold text-green-800 mb-4"></h2>
+    <div class="mb-2 text-sm text-green-700 font-semibold" id="modal-meta"></div>
+    <div id="modal-content" class="text-gray-700 whitespace-pre-wrap"></div>
+   </div>
+  </div>
 
-                <article class="berita-card">
-                    <img src="images/berita3.jpg" alt="Berita 3">
-                    <div class="berita-content">
-                        <span class="tanggal">10 Januari 2024</span>
-                        <h2>Pelatihan Da'i Muda NU</h2>
-                        <p>Pembinaan dan pelatihan da'i muda NU untuk mencetak generasi penerus yang mampu menyebarkan ajaran Islam yang rahmatan lil alamin.</p>
-                        <a href="#" class="read-more">Baca Selengkapnya</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="pagination">
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#" class="next">Selanjutnya</a>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>PCNU Kotabaru</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru</p>
-                <p><i class="fas fa-envelope"></i> Email: kotabaru@nu.or.id</p>
-                <p><i class="fas fa-phone"></i> Telp: (+62) 812-5656-8899, (+62) 821-5175-8303</p>
-            </div>
-
-            <div class="footer-section">
-                <h3>Media Sosial</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+  <footer class="bg-green-800 text-green-100 py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">PCNU Kotabaru</h3>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-map-marker-alt"></i>
+            Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-envelope"></i>
+            Email: kotabaru@nu.or.id
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-phone"></i>
+            Telp: (+62) 812-5656-8899, (+62) 821-5175-8303
+          </p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 PCNU Kotabaru. All rights reserved.</p>
-        </div>
-    </footer>
 
-    <!-- Salin footer dari index.html -->
-    <script src="js/main.js"></script>
-</body>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
+          <div style="display: flex; gap: 1rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition" style="font-size: 1.5rem;">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 pt-4 border-t border-green-700 text-center">
+        <p>&copy; 2024 PCNU Kotabaru. Semua hak cipta dilindungi undang-undang.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const newsData = [
+      {
+        title: "Rapat Koordinasi PCNU Kotabaru 2024",
+        category: "Kegiatan",
+        author: "Admin PCNU",
+        date: "2024-04-10",
+        content: `
+<p>PCNU Kotabaru menggelar rapat koordinasi untuk menyusun program kerja tahun 2024 yang lebih efektif dan berdampak.</p>
+<p><strong>Kegiatan ini dihadiri oleh seluruh pengurus dan anggota</strong> untuk membahas strategi dakwah dan sosial kemasyarakatan.</p>
+<p>Berikut adalah kutipan doa pembuka rapat dalam bahasa Arab:</p>
+<p class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+<p><em>Artinya: Dengan nama Allah Yang Maha Pengasih lagi Maha Penyayang.</em></p>
+<img src="https://placehold.co/600x300?text=Rapat+Koordinasi+PCNU+Kotabaru+2024" alt="Foto rapat koordinasi PCNU Kotabaru tahun 2024, menampilkan beberapa pengurus duduk di ruang rapat dengan latar belakang bendera dan spanduk organisasi" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      },
+      {
+        title: "Pembukaan Madrasah Diniyah Baru",
+        category: "Pendidikan",
+        author: "Admin PCNU",
+        date: "2024-03-25",
+        content: `
+<p>PCNU Kotabaru membuka madrasah diniyah baru untuk meningkatkan pendidikan agama bagi anak-anak di Kotabaru.</p>
+<p>Madrasah ini menyediakan kurikulum yang sesuai dengan nilai-nilai Ahlussunnah wal Jamaah.</p>
+<p>Contoh bacaan Al-Qur'an yang diajarkan:</p>
+<p class="arabic-text">اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ</p>
+<p><strong>Artinya:</strong> Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan.</p>
+<img src="https://placehold.co/600x300?text=Madrasah+Diniyah+Baru" alt="Foto pembukaan madrasah diniyah baru di Kotabaru, menampilkan anak-anak dan guru sedang beraktivitas belajar di dalam kelas dengan dekorasi Islami" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      },
+      {
+        title: "Bantuan Sosial untuk Korban Banjir",
+        category: "Sosial",
+        author: "Admin PCNU",
+        date: "2024-02-15",
+        content: `
+<p>PCNU Kotabaru menyalurkan bantuan sosial kepada masyarakat yang terdampak banjir di beberapa desa.</p>
+<p>Bantuan berupa paket sembako dan kebutuhan pokok lainnya disalurkan secara langsung oleh relawan.</p>
+<p>Doa keselamatan dalam bahasa Arab:</p>
+<p class="arabic-text">اللَّهُمَّ احْفَظْنَا مِنَ الْفِتَنِ</p>
+<p><em>Artinya: Ya Allah, lindungilah kami dari segala fitnah.</em></p>
+<img src="https://placehold.co/600x300?text=Bantuan+Sosial+Korban+Banjir" alt="Foto relawan PCNU Kotabaru sedang menyalurkan paket sembako kepada warga yang terdampak banjir di desa, dengan latar belakang rumah-rumah yang terendam air" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      },
+      {
+        title: "Aksi Bersih Lingkungan oleh Pemuda PCNU",
+        category: "Kegiatan",
+        author: "Admin PCNU",
+        date: "2024-01-30",
+        content: `
+<p>Pemuda PCNU Kotabaru mengadakan aksi bersih lingkungan sebagai bentuk kepedulian terhadap alam dan masyarakat.</p>
+<p>Kegiatan ini melibatkan banyak relawan dan mendapat dukungan dari masyarakat setempat.</p>
+<p>Doa memulai pekerjaan:</p>
+<p class="arabic-text">اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا</p>
+<p><strong>Artinya:</strong> Ya Allah, berkahilah kami dalam rezeki yang Engkau berikan.</p>
+<img src="https://placehold.co/600x300?text=Aksi+Bersih+Lingkungan+Pemuda+PCNU" alt="Foto pemuda PCNU Kotabaru sedang membersihkan lingkungan, mengumpulkan sampah di area taman dengan semangat kebersamaan" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      },
+      {
+        title: "Kegiatan Amal Ramadan 2024",
+        category: "Sosial",
+        author: "Admin PCNU",
+        date: "2023-12-20",
+        content: `
+<p>PCNU Kotabaru mengadakan kegiatan amal selama bulan Ramadan untuk membantu warga kurang mampu.</p>
+<p>Kegiatan ini meliputi pembagian paket makanan dan santunan kepada anak yatim.</p>
+<p>Doa berbuka puasa:</p>
+<p class="arabic-text">ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ</p>
+<p><em>Artinya: Dahaga telah hilang dan urat-urat basah.</em></p>
+<img src="https://placehold.co/600x300?text=Kegiatan+Amal+Ramadan+2024" alt="Foto pembagian paket makanan dan santunan oleh PCNU Kotabaru kepada anak yatim dan warga kurang mampu selama bulan Ramadan" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      },
+      {
+        title: "Sinergi dengan Pemerintah Daerah",
+        category: "Kegiatan",
+        author: "Admin PCNU",
+        date: "2023-11-10",
+        content: `
+<p>PCNU Kotabaru memperkuat sinergi dengan pemerintah daerah untuk mendukung pembangunan sosial dan keagamaan.</p>
+<p>Pertemuan ini membahas berbagai program kolaborasi yang akan dilaksanakan.</p>
+<p>Doa keberhasilan:</p>
+<p class="arabic-text">رَبِّ اشْرَحْ لِي صَدْرِي</p>
+<p><strong>Artinya:</strong> Ya Tuhanku, lapangkanlah dadaku.</p>
+<img src="https://placehold.co/600x300?text=Sinergi+Pemerintah+Daerah" alt="Foto pertemuan antara pengurus PCNU Kotabaru dengan pejabat pemerintah daerah di ruang rapat resmi" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      },
+      {
+        title: "Pelatihan Pemuda PCNU Kotabaru",
+        category: "Pendidikan",
+        author: "Admin PCNU",
+        date: "2023-10-05",
+        content: `
+<p>PCNU Kotabaru mengadakan pelatihan kepemudaan untuk meningkatkan kapasitas dan peran aktif pemuda dalam kegiatan keagamaan dan sosial.</p>
+<p>Doa memohon ilmu:</p>
+<p class="arabic-text">رَبِّ زِدْنِي عِلْمًا</p>
+<p><em>Artinya: Ya Tuhan, tambahkanlah ilmuku.</em></p>
+<img src="https://placehold.co/600x300?text=Pelatihan+Pemuda+PCNU" alt="Foto pelatihan pemuda PCNU Kotabaru, menampilkan peserta muda sedang mengikuti sesi pelatihan di aula" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      },
+      {
+        title: "Festival Budaya Islam Kotabaru",
+        category: "Kegiatan",
+        author: "Admin PCNU",
+        date: "2023-09-15",
+        content: `
+<p>Festival budaya Islam yang diselenggarakan oleh PCNU Kotabaru berhasil menarik ribuan pengunjung dan menampilkan berbagai kesenian tradisional serta dakwah.</p>
+<p>Doa keberkahan:</p>
+<p class="arabic-text">اللَّهُمَّ اجْعَلْنَا مِنَ الْمُبَارَكِينَ</p>
+<p><strong>Artinya:</strong> Ya Allah, jadikanlah kami termasuk orang-orang yang diberkahi.</p>
+<img src="https://placehold.co/600x300?text=Festival+Budaya+Islam+Kotabaru" alt="Foto festival budaya Islam di Kotabaru, menampilkan panggung seni dan pengunjung yang antusias" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      },
+      {
+        title: "Penggalangan Dana untuk Renovasi Masjid",
+        category: "Sosial",
+        author: "Admin PCNU",
+        date: "2023-08-20",
+        content: `
+<p>PCNU Kotabaru menggalang dana untuk renovasi masjid utama di Kotabaru agar dapat memberikan kenyamanan lebih bagi jamaah.</p>
+<p>Doa memohon kemudahan:</p>
+<p class="arabic-text">يَا مُسَهِّلَ الْأُمُورِ</p>
+<p><em>Artinya: Wahai Yang Memudahkan Segala Urusan.</em></p>
+<img src="https://placehold.co/600x300?text=Penggalangan+Dana+Renovasi+Masjid" alt="Foto penggalangan dana oleh PCNU Kotabaru untuk renovasi masjid utama, menampilkan kotak sumbangan dan pengurus yang berdiskusi" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      },
+      {
+        title: "Seminar Moderasi Beragama",
+        category: "Kegiatan",
+        author: "Admin PCNU",
+        date: "2023-07-10",
+        content: `
+<p>Seminar moderasi beragama yang diadakan PCNU Kotabaru bertujuan memperkuat toleransi dan kerukunan antarumat beragama di Kotabaru.</p>
+<p>Doa kedamaian:</p>
+<p class="arabic-text">رَبِّ اجْعَلْنَا مُسْلِمَيْنِ لَكَ</p>
+<p><strong>Artinya:</strong> Ya Tuhanku, jadikanlah kami orang-orang yang tunduk kepada-Mu.</p>
+<img src="https://placehold.co/600x300?text=Seminar+Moderasi+Beragama" alt="Foto seminar moderasi beragama di Kotabaru, menampilkan pembicara dan peserta seminar di aula" class="my-4 rounded-md shadow-md w-full object-cover" />
+        `,
+      }
+    ];
+
+    const newsContainer = document.getElementById("news-container");
+    const paginationContainer = document.getElementById("pagination");
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalMeta = document.getElementById("modal-meta");
+    const modalContent = document.getElementById("modal-content");
+    const modalCloseBtn = document.getElementById("modal-close");
+
+    const itemsPerPage = 5;
+    let currentPage = 1;
+    const totalPages = Math.ceil(newsData.length / itemsPerPage);
+
+    function formatDate(dateStr) {
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      const date = new Date(dateStr);
+      return date.toLocaleDateString("id-ID", options);
+    }
+
+    function renderNewsPage(page) {
+      newsContainer.innerHTML = "";
+      const start = (page - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      const pageItems = newsData.slice(start, end);
+
+      pageItems.forEach((item, index) => {
+        const article = document.createElement("article");
+        article.className = "bg-green-50 rounded-lg shadow-md p-6";
+
+        // Strip HTML tags for preview text, then truncate
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = item.content;
+        let textContent = tempDiv.textContent || tempDiv.innerText || "";
+        if (textContent.length > 250) {
+          textContent = textContent.slice(0, 250) + "...";
+        }
+
+        article.innerHTML = `
+          <h2 class="text-2xl font-semibold text-green-700 mb-2">${item.title}</h2>
+          <div class="mb-2 flex flex-wrap gap-4 text-sm text-green-800 font-semibold">
+            <span class="bg-green-200 rounded-full px-3 py-1">${item.category}</span>
+            <span>Penulis: ${item.author}</span>
+            <span>Tanggal: ${formatDate(item.date)}</span>
+          </div>
+          <p class="text-gray-700 text-justify mb-4">${textContent}</p>
+          <button
+            class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition font-semibold"
+            data-news-index="${start + index}"
+            aria-label="Baca selengkapnya berita ${item.title}"
+          >
+            Baca Selengkapnya
+          </button>
+        `;
+        newsContainer.appendChild(article);
+      });
+    }
+
+    function renderPagination() {
+      paginationContainer.innerHTML = "";
+
+      // Previous button
+      const prevBtn = document.createElement("button");
+      prevBtn.textContent = "‹";
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.className =
+        "px-3 py-1 rounded-md font-semibold " +
+        (prevBtn.disabled
+          ? "bg-green-300 text-green-100 cursor-not-allowed"
+          : "bg-green-700 text-green-100 hover:bg-green-800");
+      prevBtn.addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage--;
+          updatePage();
+        }
+      });
+      paginationContainer.appendChild(prevBtn);
+
+      // Page numbers
+      for (let i = 1; i <= totalPages; i++) {
+        const pageBtn = document.createElement("button");
+        pageBtn.textContent = i;
+        pageBtn.className =
+          "px-3 py-1 rounded-md font-semibold " +
+          (i === currentPage
+            ? "bg-green-700 text-green-100 cursor-default"
+            : "bg-green-100 text-green-700 hover:bg-green-200");
+        if (i !== currentPage) {
+          pageBtn.addEventListener("click", () => {
+            currentPage = i;
+            updatePage();
+          });
+        }
+        paginationContainer.appendChild(pageBtn);
+      }
+
+      // Next button
+      const nextBtn = document.createElement("button");
+      nextBtn.textContent = "›";
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.className =
+        "px-3 py-1 rounded-md font-semibold " +
+        (nextBtn.disabled
+          ? "bg-green-300 text-green-100 cursor-not-allowed"
+          : "bg-green-700 text-green-100 hover:bg-green-800");
+      nextBtn.addEventListener("click", () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          updatePage();
+        }
+      });
+      paginationContainer.appendChild(nextBtn);
+    }
+
+    function updatePage() {
+      renderNewsPage(currentPage);
+      renderPagination();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      attachReadMoreListeners();
+    }
+
+    function attachReadMoreListeners() {
+      const buttons = newsContainer.querySelectorAll("button[data-news-index]");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const index = parseInt(btn.getAttribute("data-news-index"));
+          openModal(index);
+        });
+      });
+    }
+
+    function openModal(index) {
+      const article = newsData[index];
+      modalTitle.textContent = article.title;
+      modalMeta.textContent = `Kategori: ${article.category} | Penulis: ${article.author} | Tanggal: ${formatDate(article.date)}`;
+      modalContent.innerHTML = article.content;
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    modalCloseBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close modal on ESC key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+
+    // Initial render
+    updatePage();
+  </script>
+ </body>
 </html>
