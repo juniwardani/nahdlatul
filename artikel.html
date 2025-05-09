@@ -220,22 +220,6 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
   >
    <h1 class="text-4xl font-bold text-green-800 mb-12 text-center">Artikel PCNU Kotabaru</h1>
    
-   <!-- Filter Kategori -->
-   <div class="grid grid-cols-4 gap-2 max-w-2xl mx-auto mb-8">
-     <button class="filter-btn active px-2 py-1.5 rounded-full bg-green-700 text-white hover:bg-green-800 transition text-sm" data-category="all">
-       Semua
-     </button>
-     <button class="filter-btn px-2 py-1.5 rounded-full bg-green-100 text-green-700 hover:bg-green-200 transition text-sm" data-category="Fiqih">
-       Fiqih
-     </button>
-     <button class="filter-btn px-2 py-1.5 rounded-full bg-green-100 text-green-700 hover:bg-green-200 transition text-sm" data-category="Aqidah">
-       Aqidah
-     </button>
-     <button class="filter-btn px-2 py-1.5 rounded-full bg-green-100 text-green-700 hover:bg-green-200 transition text-sm" data-category="Tasawuf">
-       Tasawuf
-     </button>
-   </div>
-
    <div id="articles-container" class="space-y-10"></div>
    <nav
      aria-label="Pagination"
@@ -324,11 +308,9 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
     const modalMeta = document.getElementById("modal-meta");
     const modalContent = document.getElementById("modal-content");
     const modalCloseBtn = document.getElementById("modal-close");
-    const filterButtons = document.querySelectorAll('.filter-btn');
 
     const itemsPerPage = 5;
     let currentPage = 1;
-    let currentCategory = 'all';
     let articlesData = [];
     let totalPages = 0;
 
@@ -338,18 +320,12 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
       return date.toLocaleDateString("id-ID", options);
     }
 
-    async function fetchArticles(category = 'all') {
+    async function fetchArticles() {
       try {
-        let query = supabase
+        const { data, error } = await supabase
           .from('dakwah')
           .select('*')
           .order('tanggal', { ascending: false });
-
-        if (category !== 'all') {
-          query = query.eq('kategori', category);
-        }
-
-        const { data, error } = await query;
 
         if (error) throw error;
 
@@ -525,23 +501,6 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
       if (e.key === "Escape" && !modal.classList.contains("hidden")) {
         closeModal();
       }
-    });
-
-    // Filter button event listeners
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Update active state
-        filterButtons.forEach(btn => {
-          btn.classList.remove('active', 'bg-green-700', 'text-white');
-          btn.classList.add('bg-green-100', 'text-green-700');
-        });
-        button.classList.add('active', 'bg-green-700', 'text-white');
-        button.classList.remove('bg-green-100', 'text-green-700');
-
-        // Update category and fetch articles
-        currentCategory = button.dataset.category;
-        fetchArticles(currentCategory);
-      });
     });
 
     // Initial load
