@@ -203,7 +203,7 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
      <div>
 <p class="text-gray-700 text-lg leading-relaxed text-justify">
-  <strong>PCNU Kotabaru</strong> aktif memfasilitasi kegiatan dakwah, sosial, dan pendidikan di Bumi Saijaan melalui program seperti <em>LAZISNU</em>, <em>Lailatul Ijtima</em>, majelis ilmu, serta berbagai kegiatan keumatan lainnya. Berlandaskan <em>Aqidah Asy’ariyah</em>, PCNU menjaga tradisi <em>Ahlussunnah wal Jamaah</em> dan memperkuat peran <strong>Nahdlatul Ulama</strong> di tengah masyarakat. Dalam tasawuf mengikuti ajaran <em>Ghazaliyyah</em> dan <em>Junaid al-Baghdadi</em>, serta dalam fiqih berpegang pada <em>Syafi’iyyah</em> yang moderat dan seimbang.
+  <strong>PCNU Kotabaru</strong> aktif memfasilitasi kegiatan dakwah, sosial, dan pendidikan di Bumi Saijaan melalui program seperti <em>LAZISNU</em>, <em>Lailatul Ijtima</em>, majelis ilmu, serta berbagai kegiatan keumatan lainnya. Berlandaskan <em>Aqidah Asy'ariyah</em>, PCNU menjaga tradisi <em>Ahlussunnah wal Jamaah</em> dan memperkuat peran <strong>Nahdlatul Ulama</strong> di tengah masyarakat. Dalam tasawuf mengikuti ajaran <em>Ghazaliyyah</em> dan <em>Junaid al-Baghdadi</em>, serta dalam fiqih berpegang pada <em>Syafi'iyyah</em> yang moderat dan seimbang.
 </p>
 <p class="mt-4 text-gray-700 text-lg leading-relaxed text-justify">
   Didukung oleh pengurus, <em>banom</em>, dan warga <em>Nahdliyin</em>, PCNU Kotabaru terus tumbuh sebagai wadah strategis untuk penguatan kelembagaan, pemberdayaan umat, dan pembangunan masyarakat yang berkelanjutan. Melalui program pemberdayaan yang menyentuh sektor ekonomi, pendidikan, dan kemanusiaan, PCNU juga menanamkan cinta tanah air serta menjaga kesatuan dan persatuan demi keutuhan <strong>NKRI</strong>, dengan semangat <em>Islam rahmatan lil 'alamin</em>.
@@ -243,10 +243,12 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
       role="list"
      ></div>
      <div class="text-center">
+      <p class="text-gray-700 mb-4">Kunjungi website LAZISNU Kotabaru untuk informasi lebih lanjut tentang program pengelolaan zakat, infak, dan sedekah.</p>
       <a
-       href="program.html"
-       class="inline-block mt-4 px-8 py-3 bg-yellow-400 text-green-900 font-semibold rounded-md shadow-md hover:bg-yellow-300 transition"
-       >Lihat Selengkapnya</a
+       href="https://lazisnuktb.vercel.app/"
+       target="_blank"
+       class="inline-block mb-4 px-8 py-3 bg-green-700 text-white font-semibold rounded-md shadow-md hover:bg-green-600 transition"
+       >Kunjungi LAZISNU Kotabaru</a
       >
      </div>
     </div>
@@ -513,6 +515,11 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
      );
      article.setAttribute("tabindex", "0");
      article.setAttribute("role", "listitem");
+     
+     // Tambahkan event listener untuk mengarahkan ke program.html
+     article.addEventListener('click', () => {
+       window.location.href = 'program.html';
+     });
 
      const img = document.createElement("img");
      img.src = program.image;
