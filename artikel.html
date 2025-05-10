@@ -221,11 +221,25 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
    <h1 class="text-4xl font-bold text-green-800 mb-12 text-center">Artikel PCNU Kotabaru</h1>
    
    <div id="articles-container" class="space-y-10"></div>
-   <nav
-     aria-label="Pagination"
-     class="mt-12 flex justify-center space-x-3"
-     id="pagination"
-   ></nav>
+   <div class="pagination flex justify-center items-center mt-12 space-x-3">
+      <button
+        id="prev-btn"
+        class="page-button bg-green-700 text-white px-4 py-2 rounded-md shadow hover:bg-green-800 disabled:bg-green-300 disabled:cursor-not-allowed hover-button"
+        type="button"
+        aria-label="Halaman sebelumnya"
+      >
+        <i class="fas fa-chevron-left mr-1"></i> Sebelumnya
+      </button>
+      <div id="page-info" class="page-info text-green-800 font-semibold"></div>
+      <button
+        id="next-btn"
+        class="page-button bg-green-700 text-white px-4 py-2 rounded-md shadow hover:bg-green-800 disabled:bg-green-300 disabled:cursor-not-allowed hover-button"
+        type="button"
+        aria-label="Halaman berikutnya"
+      >
+        Berikutnya <i class="fas fa-chevron-right ml-1"></i>
+      </button>
+    </div>
   </main>
 
   <!-- Modal -->
@@ -267,7 +281,7 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
           </p>
           <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
             <i class="fas fa-phone"></i>
-            Telp: (+62) 812-5656-8899, (+62) 821-5175-8303
+            Telp: (+62) 812-5656-8899, (+62) 812-5063-356
           </p>
         </div>
 
@@ -302,7 +316,6 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
         const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
 
     const articlesContainer = document.getElementById("articles-container");
-    const paginationContainer = document.getElementById("pagination");
     const modal = document.getElementById("modal");
     const modalTitle = document.getElementById("modal-title");
     const modalMeta = document.getElementById("modal-meta");
@@ -391,67 +404,30 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
     }
 
     function renderPagination() {
-      paginationContainer.innerHTML = "";
+      document.getElementById('page-info').textContent = `${currentPage} dari ${totalPages}`;
+      document.getElementById('prev-btn').disabled = currentPage === 1;
+      document.getElementById('next-btn').disabled = currentPage === totalPages;
+    }
 
-      if (totalPages <= 1) return;
-
-      // Previous button
-      const prevBtn = document.createElement("button");
-      prevBtn.textContent = "‹";
-      prevBtn.disabled = currentPage === 1;
-      prevBtn.className =
-        "px-3 py-1 rounded-md font-semibold " +
-        (prevBtn.disabled
-          ? "bg-green-300 text-green-100 cursor-not-allowed"
-          : "bg-green-700 text-green-100 hover:bg-green-800");
-      prevBtn.addEventListener("click", () => {
-        if (currentPage > 1) {
-          currentPage--;
-          updatePage();
-        }
-      });
-      paginationContainer.appendChild(prevBtn);
-
-      // Page numbers
-      for (let i = 1; i <= totalPages; i++) {
-        const pageBtn = document.createElement("button");
-        pageBtn.textContent = i;
-        pageBtn.className =
-          "px-3 py-1 rounded-md font-semibold " +
-          (i === currentPage
-            ? "bg-green-700 text-green-100 cursor-default"
-            : "bg-green-100 text-green-700 hover:bg-green-200");
-        if (i !== currentPage) {
-          pageBtn.addEventListener("click", () => {
-            currentPage = i;
-            updatePage();
-          });
-        }
-        paginationContainer.appendChild(pageBtn);
+    function previousPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePage();
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
+    }
 
-      // Next button
-      const nextBtn = document.createElement("button");
-      nextBtn.textContent = "›";
-      nextBtn.disabled = currentPage === totalPages;
-      nextBtn.className =
-        "px-3 py-1 rounded-md font-semibold " +
-        (nextBtn.disabled
-          ? "bg-green-300 text-green-100 cursor-not-allowed"
-          : "bg-green-700 text-green-100 hover:bg-green-800");
-      nextBtn.addEventListener("click", () => {
-        if (currentPage < totalPages) {
-          currentPage++;
-          updatePage();
-        }
-      });
-      paginationContainer.appendChild(nextBtn);
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePage();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
 
     function updatePage() {
       renderArticlesPage(currentPage);
       renderPagination();
-      window.scrollTo({ top: 0, behavior: "smooth" });
       attachReadMoreListeners();
     }
 
@@ -502,6 +478,10 @@ class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold ho
         closeModal();
       }
     });
+
+    // Event listeners
+    document.getElementById('prev-btn').addEventListener('click', previousPage);
+    document.getElementById('next-btn').addEventListener('click', nextPage);
 
     // Initial load
     fetchArticles();
