@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jurnal Kegiatan PCNU Kotabaru - Masa Khidmat 2005-2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+    /* Modern professional styling */
+    :root {
+      --nu-green: #0f5132;
+      --nu-green-light: #d1e7dd;
+    }
+
+    .table-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 10px;
+    }
+
+    .table {
+      margin-bottom: 0;
+      border: none;
+    }
+
+    .table th {
+      background-color: var(--nu-green) !important;
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 10px 8px;
+      text-align: center; 
+      vertical-align: middle; 
+      line-height: 1.2; 
+      white-space: normal;
+      height: auto;
+      font-size: 0.95rem;
+    }
+
+    .table td {
+      padding: 6px 10px;
+      border-color: #dee2e6;
+      vertical-align: middle;
+      word-wrap: break-word;
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+
+    .table-striped > tbody > tr:nth-of-type(odd) {
+      background-color: rgba(209, 231, 221, 0.4);
+    }
+
+    .table-striped > tbody > tr:hover {
+      background-color: rgba(209, 231, 221, 0.6);
+      transition: background-color 0.2s ease;
+    }
+
+    .pointer { cursor: pointer; }
+
+    .page-title {
+      color: var(--nu-green);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-container {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .form-select {
+      border-color: #dee2e6;
+      box-shadow: none;
+    }
+
+    .form-select:focus {
+      border-color: var(--nu-green);
+      box-shadow: 0 0 0 0.25rem rgba(15, 81, 50, 0.25);
+    }
+
+    .pagination .page-link {
+      color: var(--nu-green);
+      border-color: #dee2e6;
+    }
+
+    .pagination .page-item.active .page-link {
+      background-color: var(--nu-green);
+      border-color: var(--nu-green);
+      color: white;
+    }
+
+    .pagination .page-link:hover {
+      background-color: var(--nu-green-light);
+      border-color: var(--nu-green);
+      color: var(--nu-green);
+    }
+
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover {
+      transform: translateY(-3px);
+      color: #4ade80 !important;
+    }
+
+    @media (max-width: 768px) {
+      .table th {
+        font-size: 0.7rem;
+        padding: 4px 2px;
+        line-height: 1;
+      }
+      .table-container {
+        padding: 6px;
+        margin: 3px;
+      }
+      
+      .table {
+        font-size: 0.8rem;
+        table-layout: fixed;
+        width: 100%;
+      }
+      
+      .table td, .table th {
+        padding: 3px 2px;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+        max-width: 0;
+      }
+    }
+      .table td, .table th {
+        padding: 4px 5px;
+      }
+    
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-green-800 text-green-100 shadow-md fixed w-full z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a class="flex items-center space-x-3" href="index.html">
+          <img
+            alt="Logo PCNU Kotabaru, green and gold emblem with Islamic calligraphy" 
+            class="h-16 w-16 object-contain"
+            height="64"
+            src="img/logo.jpg"
+            width="64"
+          />
+          <span class="text-2xl font-bold text-green-100">PCNU Kotabaru</span>
+        </a>
+        <nav class="hidden md:flex space-x-8 font-semibold text-green-100">
+          <a class="hover:text-green-300 transition" href="index.html">Beranda</a>
+          <a class="hover:text-green-300 transition" href="tentang.html">Tentang Kami</a>
+          <a class="hover:text-green-300 transition" href="program.html">Program</a>
+          <a class="hover:text-green-300 transition" href="berita.html">Berita</a>
+          <a class="hover:text-green-300 transition" href="artikel.html">Artikel</a>
+          <a class="hover:text-green-300 transition" href="galeri.html">Galeri</a>
+          <a class="hover:text-green-300 transition" href="kontak.html">Kontak</a>
+          <a class="hover:text-green-300 transition" href="jurnal.html">Jurnal</a>
+        </nav>
+        <button
+          aria-label="Toggle menu"
+          class="md:hidden focus:outline-none focus:ring-2 focus:ring-green-300"
+          id="menu-btn"
+        >
+          <i class="fas fa-bars text-2xl text-green-100"></i>
+        </button>
+      </div>
+    </div>
+    <nav
+      aria-label="Mobile menu"
+      class="md:hidden bg-green-800 border-t border-green-700 hidden"
+      id="mobile-menu"
+    >
+      <a class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700" href="index.html">Beranda</a>
+      <a class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700" href="tentang.html">Tentang Kami</a>
+      <a class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700" href="program.html">Program</a>
+      <a class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700" href="berita.html">Berita</a>
+      <a class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700" href="artikel.html">Artikel</a>
+      <a class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700" href="galeri.html">Galeri</a>
+      <a class="block px-4 py-3 border-b border-green-700 text-green-100 font-semibold hover:bg-green-700" href="kontak.html">Kontak</a>
+    </nav>
+  </header>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Inisialisasi Supabase client
+        const supabaseUrl = 'https://iwnwqcxigtywetgcmlou.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3bndxY3hpZ3R5d2V0Z2NtbG91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU4MjQ4MTUsImV4cCI6MjA1MTQwMDgxNX0.fjdJlTVav4Gm8ku9rBmRuLoae5ViFxas7Uu069ItfnY'
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
+
+  <main class="pt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white min-h-screen">
+    <h1 class="text-4xl font-bold text-green-800 mb-2 text-center">JURNAL KEGIATAN PCNU KOTABARU</h1>
+    <h2 class="text-xl text-gray-600 mb-12 text-center">Masa Khidmat 2005-2030</h2>
+    
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+        <div class="w-full sm:w-auto">
+          <label for="filterMonth" class="block text-sm font-semibold text-green-800 mb-2">Filter Bulan</label>
+          <select id="filterMonth" class="w-full sm:w-48 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-gray-700">
+            <option value="" selected>Semua Bulan</option>
+            <option value="01">Januari</option>
+            <option value="02">Februari</option>
+            <option value="03">Maret</option>
+            <option value="04">April</option>
+            <option value="05">Mei</option>
+            <option value="06">Juni</option>
+            <option value="07">Juli</option>
+            <option value="08">Agustus</option>
+            <option value="09">September</option>
+            <option value="10">Oktober</option>
+            <option value="11">November</option>
+            <option value="12">Desember</option>
+          </select>
+        </div>
+        <div class="w-full sm:w-auto">
+          <label for="filterYear" class="block text-sm font-semibold text-green-800 mb-2">Filter Tahun</label>
+          <select id="filterYear" class="w-full sm:w-48 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-gray-700"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <div style="overflow-x:auto;">
+        <table class="table table-striped w-full" style="min-height: 20vh;">
+          <thead>
+            <tr>
+              <th scope="col" style="width:15%;" class="text-center">No</th>
+              <th scope="col" style="width:25%;" class="text-center">Hari/Tanggal</th>
+              <th scope="col" style="width:40%;" class="text-center">Kegiatan</th>
+              <th scope="col" style="width:30%;" class="text-center">Kehadiran & Tempat</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody" class="min-h-[60vh]">
+            <tr>
+              <td colspan="4" class="text-center py-8" style="height: 250px; vertical-align: middle;">
+                <div id="loadingIndicator" class="text-gray-500 text-lg">
+                  <i class="fas fa-spinner fa-spin mr-2"></i> Memuat data...
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <nav aria-label="Page navigation" class="mt-8 mb-4">
+      <ul class="flex justify-center items-center space-x-2" id="pagination"></ul>
+    </nav>
+  </main>
+
+  <footer class="bg-green-800 text-green-100 py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">PCNU Kotabaru</h3>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-map-marker-alt"></i>
+            Alamat: Jl. Mega Indah RT. 07 Ds. Semayap, Komplek Pendidikan Darul Ulum Kotabaru
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-envelope"></i>
+            Email: kotabaru@nu.or.id
+          </p>
+          <p class="mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-phone"></i>
+            Telp: (+62) 812-5656-8899, (+62) 812-5063-356
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
+          <div style="display: flex; gap: 1rem;">
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-green-100 hover:text-green-300 transition social-icon" style="font-size: 1.5rem;">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 pt-4 border-t border-green-700 text-center">
+        <p>&copy; 2024 PCNU Kotabaru. Semua hak cipta dilindungi undang-undang.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const rowsPerPage = 10;
+    let currentPage = 1;
+    let filteredData = [];
+    let allData = [];
+
+    const tbody = document.getElementById("tableBody");
+    const pagination = document.getElementById("pagination");
+    const filterMonth = document.getElementById("filterMonth");
+    const filterYear = document.getElementById("filterYear");
+    const loadingIndicator = document.getElementById("loadingIndicator");
+
+    // Fetch data from Supabase
+    async function fetchData() {
+      try {
+        console.log('Mencoba mengambil data...');
+        
+        const { data, error } = await supabase
+          .from('jurnal')
+          .select('*')
+          .order('hari_tanggal', { ascending: false });
+
+        if (error) {
+          console.error('Error dari Supabase:', error);
+          showErrorMessage(error.message || 'Terjadi kesalahan saat mengambil data');
+          return;
+        }
+        
+        if (!data || data.length === 0) {
+          console.log('Tidak ada data yang ditemukan di tabel jurnal');
+          showEmptyMessage();
+          return;
+        }
+
+        console.log('Data berhasil diambil:', data.length, 'baris');
+        
+        allData = data.map(item => {
+          return {
+            id: item.id,
+            hariTanggal: item.hari_tanggal || '',
+            kegiatan: item.kegiatan || '',
+            kehadiranTempat: item.kehadiran_tempat || ''
+          };
+        });
+
+        populateYearFilter();
+        filterData();
+      } catch (error) {
+        console.error('Error detail:', error);
+        showErrorMessage(error.message || 'Terjadi kesalahan saat mengambil data');
+      }
+    }
+
+    function showEmptyMessage() {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="4" class="text-center py-8" style="height: 250px; vertical-align: middle;">
+            <div class="text-gray-500 text-lg">Tidak ada data yang ditemukan.</div>
+          </td>
+        </tr>
+      `;
+    }
+
+    function showErrorMessage(message) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="4" class="text-center py-8" style="height: 250px; vertical-align: middle;">
+            <div class="text-red-500 text-lg">
+              <i class="fas fa-exclamation-triangle mr-2"></i>
+              ${message}
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+
+    // Format date for display
+    function formatDate(dateStr) {
+      if (!dateStr) return "-";
+      
+      try {
+        // Handle ISO date format (YYYY-MM-DD)
+        if (dateStr.includes('-')) {
+          const date = new Date(dateStr);
+          if (isNaN(date.getTime())) return dateStr;
+          
+          const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+          return date.toLocaleDateString('id-ID', options);
+        }
+        
+        // If it's already formatted, return as is
+        return dateStr;
+      } catch (e) {
+        console.error('Error formatting date:', e);
+        return dateStr;
+      }
+    }
+
+    // Populate year filter with available years from data
+    function populateYearFilter() {
+      const years = new Set();
+      const currentYear = new Date().getFullYear();
+      
+      // Add current year and previous years
+      for (let i = currentYear; i >= currentYear - 5; i--) {
+        years.add(i);
+      }
+      
+      // Add years from data
+      allData.forEach(item => {
+        if (item.hariTanggal && item.hariTanggal.includes('-')) {
+          const year = item.hariTanggal.split('-')[0];
+          if (year && !isNaN(parseInt(year))) {
+            years.add(parseInt(year));
+          }
+        }
+      });
+
+      // Sort years in descending order
+      const sortedYears = Array.from(years).sort((a, b) => b - a);
+
+      // Clear existing options
+      filterYear.innerHTML = '<option value="">Semua Tahun</option>';
+
+      // Add year options
+      sortedYears.forEach(year => {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        // Set current year as default
+        if (year === currentYear) {
+          option.selected = true;
+        }
+        filterYear.appendChild(option);
+      });
+    }
+
+    function filterData() {
+      const selectedMonth = filterMonth.value;
+      const selectedYear = filterYear.value;
+      
+      filteredData = allData.filter(item => {
+        if (!item.hariTanggal) return false;
+        
+        // For ISO date format (YYYY-MM-DD)
+        if (item.hariTanggal.includes('-')) {
+          const parts = item.hariTanggal.split('-');
+          const year = parts[0];
+          const month = parts[1];
+          
+          if (selectedYear && year !== selectedYear) return false;
+          if (selectedMonth && month !== selectedMonth) return false;
+          
+          return true;
+        }
+        
+        // For already formatted dates, include them if no filter is applied
+        return !selectedMonth && !selectedYear;
+      });
+
+      currentPage = 1;
+      renderTable();
+      renderPagination();
+    }
+
+    function renderTable() {
+      if (filteredData.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="4" class="text-center py-8" style="height: 250px; vertical-align: middle;">
+              <div class="text-gray-500 text-lg">Tidak ada data yang sesuai dengan filter.</div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      const start = (currentPage - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      const pageData = filteredData.slice(start, end);
+      
+      tbody.innerHTML = "";
+      
+      // Add data rows
+      pageData.forEach((item, index) => {
+        const tr = document.createElement("tr");
+        tr.className = "h-12"; // Set compact height for each row
+        
+        const tdNo = document.createElement("td");
+        tdNo.textContent = start + index + 1;
+        tdNo.className = "text-center";
+        tr.appendChild(tdNo);
+
+        const tdHariTanggal = document.createElement("td");
+        tdHariTanggal.textContent = formatDate(item.hariTanggal);
+        tr.appendChild(tdHariTanggal);
+
+        const tdKegiatan = document.createElement("td");
+        tdKegiatan.innerHTML = item.kegiatan || "-";
+        tr.appendChild(tdKegiatan);
+
+        const tdKehadiran = document.createElement("td");
+        tdKehadiran.innerHTML = item.kehadiranTempat || "-";
+        tr.appendChild(tdKehadiran);
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderPagination() {
+      pagination.innerHTML = "";
+      const pageCount = Math.ceil(filteredData.length / rowsPerPage);
+      if(pageCount <= 1) return;
+
+      // Previous button
+      const prevLi = document.createElement("li");
+      prevLi.className = currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-green-100";
+      const prevLink = document.createElement("a");
+      prevLink.className = "flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white text-gray-700 transition-colors duration-200";
+      prevLink.href = "#";
+      prevLink.setAttribute("aria-label", "Previous");
+      prevLink.innerHTML = "&laquo;";
+      prevLink.onclick = e => {
+        e.preventDefault();
+        if(currentPage > 1) {
+          currentPage--;
+          renderTable();
+          renderPagination();
+          scrollToTable();
+        }
+      };
+      prevLi.appendChild(prevLink);
+      pagination.appendChild(prevLi);
+
+      // Page numbers (show max 5 pages, with current in center if possible)
+      let startPage = Math.max(1, currentPage - 2);
+      let endPage = Math.min(pageCount, startPage + 4);
+      if(endPage - startPage < 4) {
+        startPage = Math.max(1, endPage - 4);
+      }
+
+      for(let i = startPage; i <= endPage; i++) {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.className = `flex items-center justify-center w-10 h-10 rounded-lg border transition-colors duration-200 ${
+          i === currentPage 
+            ? "bg-green-800 text-white border-green-800" 
+            : "bg-white text-gray-700 border-gray-300 hover:bg-green-100"
+        }`;
+        a.href = "#";
+        a.textContent = i;
+        a.onclick = e => {
+          e.preventDefault();
+          if(currentPage !== i) {
+            currentPage = i;
+            renderTable();
+            renderPagination();
+            scrollToTable();
+          }
+        };
+        li.appendChild(a);
+        pagination.appendChild(li);
+      }
+
+      // Next button
+      const nextLi = document.createElement("li");
+      nextLi.className = currentPage === pageCount ? "opacity-50 cursor-not-allowed" : "hover:bg-green-100";
+      const nextLink = document.createElement("a");
+      nextLink.className = "flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white text-gray-700 transition-colors duration-200";
+      nextLink.href = "#";
+      nextLink.setAttribute("aria-label", "Next");
+      nextLink.innerHTML = "&raquo;";
+      nextLink.onclick = e => {
+        e.preventDefault();
+        if(currentPage < pageCount) {
+          currentPage++;
+          renderTable();
+          renderPagination();
+          scrollToTable();
+        }
+      };
+      nextLi.appendChild(nextLink);
+      pagination.appendChild(nextLi);
+    }
+
+    function scrollToTable() {
+      const tableTop = document.querySelector("table").offsetTop;
+      window.scrollTo({ top: tableTop - 100, behavior: "smooth" });
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      fetchData();
+    });
+
+    // Event listeners
+    filterMonth.addEventListener("change", filterData);
+    filterYear.addEventListener("change", filterData);
+  </script>
+</body>
+</html>
