@@ -367,7 +367,7 @@
    aria-labelledby="modal-title"
   >
    <div
-    class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 relative"
+    class="bg-white rounded-lg shadow-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
    >
     <button
      aria-label="Close modal"
@@ -377,21 +377,14 @@
     >
      <i class="fas fa-times text-2xl"></i>
     </button>
-    <h3
-     class="text-2xl font-bold text-green-800 mb-6 text-center"
+    <h5
+     class="text-3xl font-bold text-green-800 mb-8 text-center"
      id="modal-title"
     >
-     Daftar Seluruh Pengurus PCNU Kotabaru
-    </h3>
-    <table class="w-full border-collapse text-gray-800">
-     <thead>
-      <tr class="bg-green-700 text-green-100">
-       <th class="border border-green-600 px-4 py-2 text-left">Posisi</th>
-       <th class="border border-green-600 px-4 py-2 text-left">Nama</th>
-      </tr>
-     </thead>
-     <tbody id="pengurus-table-body"></tbody>
-    </table>
+     SUSUNAN PENGURUS PCNU KOTABARU<br>
+     <span class="text-xl font-normal text-gray-600">MASA KHIDMAT 2025-2030</span>
+    </h5>
+    <div id="pengurus-container" class="space-y-8"></div>
    </div>
   </div>
 
@@ -451,43 +444,215 @@
 
    // Data pengurus array
    const pengurusData = [
-    { posisi: "Rais PCNU", nama: "KH. Ahmad Fauzi" },
-    { posisi: "Khatib PCNU", nama: "Ust. Muhammad Ridwan" },
-    { posisi: "Ketua PCNU", nama: "H. Sulaiman Yusuf" },
-    { posisi: "Sekretaris PCNU", nama: "Hj. Nur Aisyah" },
-    { posisi: "Bendahara", nama: "H. Ahmad Zain" },
-    { posisi: "Wakil Ketua 1", nama: "Ust. Hasan Basri" },
-    { posisi: "Wakil Ketua 2", nama: "Hj. Siti Nurhaliza" },
-    { posisi: "Sekretaris 1", nama: "Ust. Fajar Pratama" },
-    { posisi: "Sekretaris 2", nama: "Hj. Dewi Lestari" },
-    { posisi: "Koordinator Dakwah", nama: "Ust. Rudi Santoso" },
-    { posisi: "Koordinator Pendidikan", nama: "Hj. Fatimah Zahra" },
-    { posisi: "Koordinator Sosial", nama: "H. Bambang Sutrisno" },
-    { posisi: "Bendahara Pembantu", nama: "Ust. Agus Salim" },
-    { posisi: "Sekretaris Pembantu", nama: "Hj. Rina Marlina" },
-    { posisi: "Anggota Dewan 1", nama: "H. Yusuf Kurniawan" },
-    { posisi: "Anggota Dewan 2", nama: "Ust. Luthfi Ramadhan" },
+    // MUSTASYAR
+    { posisi: "MUSTASYAR", nama: "H. Rusli, S.Sos" },
+    { posisi: "MUSTASYAR", nama: "KH. Mukhyar Darmawi, BA" },
+    { posisi: "MUSTASYAR", nama: "Syairi Mukhlis, S.Sos" },
+    { posisi: "MUSTASYAR", nama: "Eka Syafruddin, AP., M.AP" },
+    { posisi: "MUSTASYAR", nama: "KH. Bahruddin Abdullah" },
+    { posisi: "MUSTASYAR", nama: "KH. Jamhari" },
+    { posisi: "MUSTASYAR", nama: "KH. Amiruddin" },
+    { posisi: "MUSTASYAR", nama: "KH. Jamzuri (Gus Jam)" },
+    { posisi: "MUSTASYAR", nama: "Ust. H. Abu Bakar Sidiq" },
+    { posisi: "MUSTASYAR", nama: "Drs. H. Zulkifli, BT" },
+    { posisi: "MUSTASYAR", nama: "Ust. H. M. Thohir" },
+    { posisi: "MUSTASYAR", nama: "Drs. H. Midhan" },
+    { posisi: "MUSTASYAR", nama: "Ust. Usman Lakuba" },
+    { posisi: "MUSTASYAR", nama: "Drs. H. Mukhni AF" },
+    { posisi: "MUSTASYAR", nama: "Drs. H. Hasbi M. Tawab" },
+    { posisi: "MUSTASYAR", nama: "Kaspul Anwar, S.Ag" },
+
+    // SYURIAH
+    { posisi: "RAIS SYURIAH", nama: "KH. Muchtashor, S.Ag" },
+    { posisi: "WAKIL RAIS SYURIAH", nama: "KH. Drs. Salman Basri, MM" },
+    { posisi: "WAKIL RAIS SYURIAH", nama: "KH. Abdul Rasyid Arsyad, S.Ag" },
+    { posisi: "WAKIL RAIS SYURIAH", nama: "KH. Ahmad Muzakir" },
+    { posisi: "WAKIL RAIS SYURIAH", nama: "KH. Drs. Bahruddin, HS" },
+    { posisi: "WAKIL RAIS SYURIAH", nama: "Drs. H. Abdul Majid, M.Pd.I" },
+    { posisi: "WAKIL RAIS SYURIAH", nama: "KH. Abdul Hadi" },
+    { posisi: "WAKIL RAIS SYURIAH", nama: "Kyai Thoharun Amrulloh, S.Pd.I" },
+    { posisi: "WAKIL RAIS SYURIAH", nama: "Kyai Zarkasyi Ma'ad, B.A" },
+    { posisi: "KATIB SYURIAH", nama: "Drs. H. Umar Dani, M.M" },
+    { posisi: "WAKIL KATIB SYURIAH", nama: "H. Muhammad Fadlani HS, S.Pd" },
+    { posisi: "WAKIL KATIB SYURIAH", nama: "Dr. H. Muhammad Husaini, MM" },
+    { posisi: "WAKIL KATIB SYURIAH", nama: "Syukeri Ghazali, M.Pd.I" },
+    { posisi: "WAKIL KATIB SYURIAH", nama: "Ust. Abdur Rahim, S.Pd.I" },
+    { posisi: "WAKIL KATIB SYURIAH", nama: "H. Mukhyar, S.Pd.I, MM" },
+    { posisi: "WAKIL KATIB SYURIAH", nama: "Ust. Fahrian" },
+    { posisi: "WAKIL KATIB SYURIAH", nama: "Muhammad Yamin, S.Ag., MM" },
+    { posisi: "WAKIL KATIB SYURIAH", nama: "H. Ahmad Sibuaih, S.Ag" },
+
+    // TANFIDZIAH
+    { posisi: "KETUA TANFIDZIAH", nama: "Dr. H. Nur Zazin, M.A" },
+    { posisi: "WAKIL KETUA TANFIDZIAH", nama: "Dr. H. Ahmad Kamal, S.HI, M.Ag" },
+    { posisi: "WAKIL KETUA TANFIDZIAH", nama: "Dr. H. Akhmad Ismail Fahni, S.E., M.Si" },
+    { posisi: "WAKIL KETUA TANFIDZIAH", nama: "Drs. Suriani Anshari, MM" },
+    { posisi: "WAKIL KETUA TANFIDZIAH", nama: "H. Abdul Ghoni, S.Pd.I" },
+    { posisi: "WAKIL KETUA TANFIDZIAH", nama: "Ust. M. Muhdiannor, S.Pd.I, Gr" },
+    { posisi: "WAKIL KETUA TANFIDZIAH", nama: "H. Herman Prasetyo, S.Ag, MM" },
+    { posisi: "WAKIL KETUA TANFIDZIAH", nama: "Ust. H. M. Yusuf Firdaus, S.Pd" },
+    { posisi: "WAKIL KETUA TANFIDZIAH", nama: "Kyai Mahmudi" },
+    { posisi: "SEKRETARIS TANFIDZIAH", nama: "H. Ahmad Fitriadi Fazriannor, S.H., M.Hum" },
+    { posisi: "WAKIL SEKRETARIS TANFIDZIAH", nama: "Tahmidullah, S.Pd" },
+    { posisi: "WAKIL SEKRETARIS TANFIDZIAH", nama: "Muhammad Noor, S.Ag., S.Pd.I" },
+    { posisi: "WAKIL SEKRETARIS TANFIDZIAH", nama: "Mahmud, S.AP" },
+    { posisi: "WAKIL SEKRETARIS TANFIDZIAH", nama: "Hamsuri M. Amin, S.Pd" },
+    { posisi: "WAKIL SEKRETARIS TANFIDZIAH", nama: "Muhammad Said, S.Pd, Gr" },
+    { posisi: "WAKIL SEKRETARIS TANFIDZIAH", nama: "Juni Wardani, S.Pd" },
+    { posisi: "WAKIL SEKRETARIS TANFIDZIAH", nama: "M. Rafi, S.Ag, M.Ag" },
+    { posisi: "WAKIL SEKRETARIS TANFIDZIAH", nama: "Hafiudin Rizaldi, S.Pd" },
+    { posisi: "BENDAHARA TANFIDZIAH", nama: "H. Ahmad Syarwani, S.HI, MM" },
+    { posisi: "WAKIL BENDAHARA TANFIDZIAH", nama: "Sya'yanul Kadevi, ST" },
+    { posisi: "WAKIL BENDAHARA TANFIDZIAH", nama: "Ir. Dwi Handoko, ST, MM" },
+    { posisi: "WAKIL BENDAHARA TANFIDZIAH", nama: "M. Husni Thambrin, S.Pd.I" },
+    { posisi: "WAKIL BENDAHARA TANFIDZIAH", nama: "Rahmad Al Hafidz, S.Pd.I" },
+    { posisi: "WAKIL BENDAHARA TANFIDZIAH", nama: "Benny Azi Lesmana Tahir, M.Pd" }
    ];
 
    // Populate pengurus table
-   const tableBody = document.getElementById("pengurus-table-body");
-   if (tableBody) {
-    pengurusData.forEach(({ posisi, nama }, index) => {
-     const tr = document.createElement("tr");
-     if (index % 2 === 1) tr.classList.add("bg-green-50");
+   const pengurusContainer = document.getElementById("pengurus-container");
+   if (pengurusContainer) {
+    // Fungsi untuk membuat header divisi
+    function createDivisiHeader(divisi) {
+      const div = document.createElement("div");
+      div.className = "bg-green-800 text-white font-bold text-xl px-6 py-3 rounded-t-lg";
+      div.textContent = divisi;
+      return div;
+    }
 
-     const tdPosisi = document.createElement("td");
-     tdPosisi.className = "border border-green-600 px-4 py-2";
-     tdPosisi.textContent = posisi;
+    // Fungsi untuk membuat card pengurus
+    function createPengurusCard(jabatan, nama, isWakil = false, nomorUrut = null, isKetua = false) {
+      const div = document.createElement("div");
+      if (isKetua) {
+        div.className = "bg-green-50 px-4 py-2 border-b border-l border-r border-green-200 last:rounded-b-lg";
+      } else {
+        div.className = "bg-white px-4 py-2 border-b border-l border-r border-green-200 last:rounded-b-lg";
+      }
+      
+      if (jabatan) {
+        const jabatanDiv = document.createElement("div");
+        if (isKetua) {
+          jabatanDiv.className = "text-green-800 font-bold mb-0.5";
+        } else {
+          jabatanDiv.className = "text-green-700 font-medium mb-0.5";
+        }
+        if (isWakil) {
+          if (nomorUrut === 1) {
+            jabatanDiv.textContent = `${jabatan} :`;
+          } else {
+            jabatanDiv.textContent = "";
+          }
+        } else {
+          jabatanDiv.textContent = `${jabatan} :`;
+        }
+        div.appendChild(jabatanDiv);
+      }
+      
+      const namaDiv = document.createElement("div");
+      if (isKetua) {
+        namaDiv.className = "text-gray-800 font-medium";
+      } else {
+        namaDiv.className = "text-gray-700";
+      }
+      if (isWakil) {
+        namaDiv.textContent = `${nomorUrut}. ${nama}`;
+      } else {
+        namaDiv.textContent = nama;
+      }
+      div.appendChild(namaDiv);
+      
+      return div;
+    }
 
-     const tdNama = document.createElement("td");
-     tdNama.className = "border border-green-600 px-4 py-2";
-     tdNama.textContent = nama;
+    // Fungsi untuk membuat section pengurus
+    function createPengurusSection(divisi, pengurusList) {
+      const section = document.createElement("div");
+      section.className = "bg-white rounded-lg shadow-md overflow-hidden";
+      
+      section.appendChild(createDivisiHeader(divisi));
+      
+      const contentDiv = document.createElement("div");
+      contentDiv.className = "divide-y divide-green-100";
+      
+      pengurusList.forEach(pengurus => {
+        contentDiv.appendChild(createPengurusCard(
+          pengurus.jabatan, 
+          pengurus.nama, 
+          pengurus.isWakil, 
+          pengurus.nomorUrut,
+          pengurus.isKetua
+        ));
+      });
+      
+      section.appendChild(contentDiv);
+      return section;
+    }
 
-     tr.appendChild(tdPosisi);
-     tr.appendChild(tdNama);
-     tableBody.appendChild(tr);
-    });
+    // Kelompokkan pengurus berdasarkan divisi
+    const mustasyar = pengurusData
+      .filter(p => p.posisi === "MUSTASYAR")
+      .map((p, index) => ({ 
+        jabatan: "Anggota", 
+        nama: p.nama,
+        isWakil: true,
+        nomorUrut: index + 1
+      }));
+
+    const syuriah = [
+      { jabatan: "Rais", nama: "KH. Muchtashor, S.Ag", isKetua: true },
+      ...pengurusData
+        .filter(p => p.posisi === "WAKIL RAIS SYURIAH")
+        .map((p, index) => ({ 
+          jabatan: "Wakil Rais", 
+          nama: p.nama,
+          isWakil: true,
+          nomorUrut: index + 1
+        })),
+      { jabatan: "Katib", nama: "Drs. H. Umar Dani, M.M", isKetua: true },
+      ...pengurusData
+        .filter(p => p.posisi === "WAKIL KATIB SYURIAH")
+        .map((p, index) => ({ 
+          jabatan: "Wakil Katib", 
+          nama: p.nama,
+          isWakil: true,
+          nomorUrut: index + 1
+        }))
+    ];
+
+    const tanfidziah = [
+      { jabatan: "Ketua", nama: "Dr. H. Nur Zazin, M.A", isKetua: true },
+      ...pengurusData
+        .filter(p => p.posisi === "WAKIL KETUA TANFIDZIAH")
+        .map((p, index) => ({ 
+          jabatan: "Wakil Ketua", 
+          nama: p.nama,
+          isWakil: true,
+          nomorUrut: index + 1
+        })),
+      { jabatan: "Sekretaris", nama: "H. Ahmad Fitriadi Fazriannor, S.H., M.Hum", isKetua: true },
+      ...pengurusData
+        .filter(p => p.posisi === "WAKIL SEKRETARIS TANFIDZIAH")
+        .map((p, index) => ({ 
+          jabatan: "Wakil Sekretaris", 
+          nama: p.nama,
+          isWakil: true,
+          nomorUrut: index + 1
+        })),
+      { jabatan: "Bendahara", nama: "H. Ahmad Syarwani, S.HI, MM", isKetua: true },
+      ...pengurusData
+        .filter(p => p.posisi === "WAKIL BENDAHARA TANFIDZIAH")
+        .map((p, index) => ({ 
+          jabatan: "Wakil Bendahara", 
+          nama: p.nama,
+          isWakil: true,
+          nomorUrut: index + 1
+        }))
+    ];
+
+    // Tambahkan sections ke container
+    pengurusContainer.appendChild(createPengurusSection("A. MUSTASYAR", mustasyar));
+    pengurusContainer.appendChild(createPengurusSection("B. SYURIAH", syuriah));
+    pengurusContainer.appendChild(createPengurusSection("C. TANFIDZIAH", tanfidziah));
    }
 
    // Modal toggle
