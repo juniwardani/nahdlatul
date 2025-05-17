@@ -384,6 +384,36 @@
      SUSUNAN PENGURUS PCNU KOTABARU<br>
      <span class="text-xl font-normal text-gray-600">MASA KHIDMAT 2025-2030</span>
     </h5>
+
+    <!-- Tombol Divisi -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <button 
+        class="divisi-btn bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-200"
+        data-divisi="mustasyar"
+      >
+        A. MUSTASYAR
+      </button>
+      <button 
+        class="divisi-btn bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-200"
+        data-divisi="syuriah"
+      >
+        B. SYURIAH
+      </button>
+      <button 
+        class="divisi-btn bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-200"
+        data-divisi="awan"
+      >
+        C. A'WAN
+      </button>
+      <button 
+        class="divisi-btn bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-200"
+        data-divisi="tanfidziah"
+      >
+        D. TANFIDZIAH
+      </button>
+    </div>
+
+    <!-- Container untuk konten divisi -->
     <div id="pengurus-container" class="space-y-8"></div>
    </div>
   </div>
@@ -619,6 +649,49 @@
         }))
     ];
 
+    const awan = [
+      { jabatan: "A'WAN", nama: "Ust. H. Syaiful Anwar", isWakil: true, nomorUrut: 1 },
+      { jabatan: "A'WAN", nama: "Drs. H. Suhartono, M.Si", isWakil: true, nomorUrut: 2 },
+      { jabatan: "A'WAN", nama: "Drs. Suhardiansyah", isWakil: true, nomorUrut: 3 },
+      { jabatan: "A'WAN", nama: "Muhammad Fuad Fahruddin, S.Ag., M.M.", isWakil: true, nomorUrut: 4 },
+      { jabatan: "A'WAN", nama: "Khairian Ansyari, S.STP, M.Si", isWakil: true, nomorUrut: 5 },
+      { jabatan: "A'WAN", nama: "Drs. H. Selamat Riyadi", isWakil: true, nomorUrut: 6 },
+      { jabatan: "A'WAN", nama: "Selamat Riyadi, S.Pd., M.Ed", isWakil: true, nomorUrut: 7 },
+      { jabatan: "A'WAN", nama: "Gusti Abdul Wakhid, S.STP, M.AP", isWakil: true, nomorUrut: 8 },
+      { jabatan: "A'WAN", nama: "Bahrinuddin, S.Ag", isWakil: true, nomorUrut: 9 },
+      { jabatan: "A'WAN", nama: "Guru Syahran, S.Pd", isWakil: true, nomorUrut: 10 },
+      { jabatan: "A'WAN", nama: "Nasrullah Zamzami, ST., M.S.", isWakil: true, nomorUrut: 11 },
+      { jabatan: "A'WAN", nama: "Drs. H. M. Fikripani, M.M.", isWakil: true, nomorUrut: 12 },
+      { jabatan: "A'WAN", nama: "Drs. H. Imran Tamim, M.M.", isWakil: true, nomorUrut: 13 },
+      { jabatan: "A'WAN", nama: "KH. M. Rusdi", isWakil: true, nomorUrut: 14 },
+      { jabatan: "A'WAN", nama: "Ir. Bahruddin, M.E.", isWakil: true, nomorUrut: 15 },
+      { jabatan: "A'WAN", nama: "H. Arbain, S.Sos", isWakil: true, nomorUrut: 16 },
+      { jabatan: "A'WAN", nama: "Mujiburahman, S.Ag", isWakil: true, nomorUrut: 17 },
+      { jabatan: "A'WAN", nama: "H. M. Zaini Yasrip, S.Pd.I, Drs.", isWakil: true, nomorUrut: 18 },
+      { jabatan: "A'WAN", nama: "Akhmad Gafuri, S.H., M.Hum", isWakil: true, nomorUrut: 19 },
+      { jabatan: "A'WAN", nama: "Noor Ipansyah, S.H., M.H.", isWakil: true, nomorUrut: 20 },
+      { jabatan: "A'WAN", nama: "M. Subhan, S.HI, M.H.", isWakil: true, nomorUrut: 21 },
+      { jabatan: "A'WAN", nama: "H. Bakhruddin, S.AP, M.AP", isWakil: true, nomorUrut: 22 },
+      { jabatan: "A'WAN", nama: "H. Faisal Bateni, M.Pd", isWakil: true, nomorUrut: 23 },
+      { jabatan: "A'WAN", nama: "H. Jamhuri", isWakil: true, nomorUrut: 24 },
+      { jabatan: "A'WAN", nama: "H. Kisra Sarwansyah", isWakil: true, nomorUrut: 25 },
+      { jabatan: "A'WAN", nama: "H. Syarifuddin (H. Punding)", isWakil: true, nomorUrut: 26 },
+      { jabatan: "A'WAN", nama: "Arbani, S.Pd.I, M.M.", isWakil: true, nomorUrut: 27 },
+      { jabatan: "A'WAN", nama: "Awaluddin, S.Pd.I", isWakil: true, nomorUrut: 28 },
+      { jabatan: "A'WAN", nama: "Nujhan, S.Pd.I", isWakil: true, nomorUrut: 29 },
+      { jabatan: "A'WAN", nama: "Sapuansyah, S.Pd.I", isWakil: true, nomorUrut: 30 },
+      { jabatan: "A'WAN", nama: "M. Bahruddin, M.Pd.", isWakil: true, nomorUrut: 31 },
+      { jabatan: "A'WAN", nama: "H. Syadijan, M.Si", isWakil: true, nomorUrut: 32 },
+      { jabatan: "A'WAN", nama: "H. Sulaiman, S.Ag, M.M.", isWakil: true, nomorUrut: 33 },
+      { jabatan: "A'WAN", nama: "Akhmad Sarwani, S.E", isWakil: true, nomorUrut: 34 },
+      { jabatan: "A'WAN", nama: "Hadi Arbaun, S.Pd", isWakil: true, nomorUrut: 35 },
+      { jabatan: "A'WAN", nama: "Hilal Salihin, M.Pd.I", isWakil: true, nomorUrut: 36 },
+      { jabatan: "A'WAN", nama: "Jasman", isWakil: true, nomorUrut: 37 },
+      { jabatan: "A'WAN", nama: "Moh. Syaiful Huda", isWakil: true, nomorUrut: 38 },
+      { jabatan: "A'WAN", nama: "Yusuf Ridho, S.Ds, M.M.", isWakil: true, nomorUrut: 39 },
+      { jabatan: "A'WAN", nama: "Rian Chandra, S.Pd, M.H.", isWakil: true, nomorUrut: 40 }
+    ];
+
     const tanfidziah = [
       { jabatan: "Ketua", nama: "Dr. H. Nur Zazin, M.A", isKetua: true },
       ...pengurusData
@@ -649,10 +722,31 @@
         }))
     ];
 
-    // Tambahkan sections ke container
-    pengurusContainer.appendChild(createPengurusSection("A. MUSTASYAR", mustasyar));
-    pengurusContainer.appendChild(createPengurusSection("B. SYURIAH", syuriah));
-    pengurusContainer.appendChild(createPengurusSection("C. TANFIDZIAH", tanfidziah));
+    // Event listener untuk tombol divisi
+    const divisiButtons = document.querySelectorAll('.divisi-btn');
+    divisiButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Hapus konten sebelumnya
+        pengurusContainer.innerHTML = '';
+        
+        // Tampilkan konten divisi yang dipilih
+        const divisi = button.dataset.divisi;
+        switch(divisi) {
+          case 'mustasyar':
+            pengurusContainer.appendChild(createPengurusSection("A. MUSTASYAR", mustasyar));
+            break;
+          case 'syuriah':
+            pengurusContainer.appendChild(createPengurusSection("B. SYURIAH", syuriah));
+            break;
+          case 'awan':
+            pengurusContainer.appendChild(createPengurusSection("C. A'WAN", awan));
+            break;
+          case 'tanfidziah':
+            pengurusContainer.appendChild(createPengurusSection("D. TANFIDZIAH", tanfidziah));
+            break;
+        }
+      });
+    });
    }
 
    // Modal toggle
